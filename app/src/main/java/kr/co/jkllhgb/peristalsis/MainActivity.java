@@ -1,7 +1,40 @@
+/*
+php=Connect.php
+<?php
+$conn = mysqli_connect("localhost", "root", "qq192837qq", "pj_pc");
+$query = "select * from pc";
+if($result = mysqli_query($conn, $query)){
+    $row_num = mysqli_num_rows($result);
+    echo "{";
+        echo "\"status\":\"OK\",";
+        echo "\"rownum\":\"$row_num\",";
+        echo "\"result\":";
+            echo "[";
+                for($i = 0; $i < $row_num; $i++){
+                    $row = mysqli_fetch_array($result);
+                    echo "{";
+                    echo "\"Num\":\"$row[PC_NUMBER]\", \"Status\":\"$row[PC_STATUS]\", \"Temp\":\"$row[PC_TEMP]\"";
+                    echo "}";
+                    if($i<$row_num-1){
+                        echo ",";
+                    }
+                }
+            echo "]";
+    echo "}";
+}
+else{
+    echo "failed to get data from database.";
+}
+?>
+ */
+
 package kr.co.jkllhgb.peristalsis;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -9,47 +42,41 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+
 public class MainActivity extends Activity {
     LinearLayout layout;
-    String test;
-    URLConnector task;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*
+        try {
+            ip=getLocalHostLANAddress();
+        }
+        catch (UnknownHostException e) {
+            e.printStackTrace();
+        }//프로젝트에서 사용했던 getLH 시도- 실패. java.lang.RuntimeException: Unable to start activity ComponentInfo
+         */
+
         layout=(LinearLayout)findViewById(R.id.createlayout);
-        test = "http://123.111.136.54/Connect.php";
-        task = new URLConnector(test);
 
-        task.start();
-
+    }
+    private static String getLocalHostLANAddress() throws UnknownHostException {
+        InetAddress local = null;		//현재 컴퓨터 IP 받아오는 함수
         try {
-            task.join();
-            System.out.println("waiting... for result");
-        } catch (InterruptedException e) {
-
-        }
-
-        String result = task.getResult();
-        int status=-1;
-        try {
-            JSONObject root=new JSONObject(result);
-
-            JSONArray ja = root.getJSONArray("result");
-
-            for(int i = 0; i < ja.length();i++) {
-                JSONObject jo = ja.getJSONObject(i);
-                status = jo.getInt("PC_STATUS");
-            }
-        }
-        catch (JSONException e) {
+            local = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-
-        System.out.println(result);
-
-        TextView t=new TextView(this);
-        t.setText(result+"\n");
-        layout.addView(t);
+        String ip = local.getHostAddress();
+        return ip;
+    }
+    public void mOnPopupClick (View v){
+        //데이터 담아서 팝업(액티비티) 호출
+        Intent intent = new Intent(this, activity_6202.class);
+        startActivityForResult(intent, 1);
     }
 }
 /*

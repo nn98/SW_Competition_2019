@@ -7,10 +7,15 @@
     tools:context=".MainActivity">
     <LinearLayout
         android:layout_gravity="center"
-        android:background="#88000000"
         android:gravity="center"
         android:id="@+id/createlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn6202"
+        android:onClick="mOnPopupClick"
+        android:text="6202"/>
 </LinearLayout>
