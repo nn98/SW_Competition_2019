@@ -84,15 +84,16 @@ i=0;
                 }
             });
         }
-해당 코드의 문제는 onClickListener의 정의에 사용한 i로 인해 발생한다. 
+해당 코드의 문제는 onClickListener의 정의에 사용한 i로 인해 발생. 
 
 "Variable '...' is accessed from within inner class, needs to be declared final"
-런타임 에러를 회피하기 위해 사용한 outer class 변수 i지만, 위와 같은 코드로
+런타임 에러를 회피하기 위해 outer class 변수 i 사용, 위와 같은 코드로
 pcA 배열 버튼들의 onClickListener를 정의한 경우 모든 pcA 배열 버튼들은
-클릭 이벤트가 발생할 경우 현재 i의 값을 불러온다.
-위의 코드의 경우 i의 값이 42로 설정되며 반복문이 마무리되는데,
-이 경우 모든 pcA 배열의 버튼들은 클릭될 경우 pcA[42].getText()를 실행하게 되는 것이다.
+클릭 이벤트가 발생할 경우 현재 i의 값을 호출해 이벤트 처리.
+위의 코드를 실행할 경우 i의 값은 42.
+이 경우 모든 pcA 배열의 버튼들은 클릭될 경우 pcA[42].getText()를 실행하게 됨.
 
+sol 1-외부 메소드 활용
 public void popUpClick(Button b) {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,10 +103,28 @@ public void popUpClick(Button b) {
             }
         });
     }
+과 같이 개별 버튼이나 버튼 배열을 메소드 매개변수로 보내 온클릭리스너 정의
 
-final int j=i; 등 다양한 시도를 해봤지만 실패. 간단한 해답이 있을듯도 하지만 현재로썬
-각 버튼들에 각자의 온클릭리스너를 정의해주는 방법밖엔 없는듯 하다.
-버튼을 this로 삼는 리스너 정의?
+sol 2-각각 새로운 final 변수 활용
+for(;i<42;i++) {
+            pcA[i]=(Button)findViewById(pcId[i]);
+            statusA[i]=Integer.parseInt(s[i+1]);
+            pcstatus(pcA[i],statusA[i]);
+            pcA[i].setOnClickListener(new View.OnClickListener() {
+                final int j=i;
+                @Override
+                public void onClick(View v) {
+                    intent.putExtra("pc_Number",pcA[j].getText());
+                    startActivityForResult(intent, 1);
+                }
+            });
+        }
+        
+~~등 다양한 시도를 해봤지만 실패. 간단한 해답이 있을듯도 하지만 현재로썬
+각 버튼들에 각자의 온클릭리스너를 정의해주는 방법밖엔 없는듯~~
+헛지랄이였고 코드 잘못써서 안된거.
+sol 2 방법으로 구현.
+__버튼을 this로 삼는 리스너 정의?__ inner와 outter 개념을 제대로 알아둬야 
 ```
 </div>
 </details>
