@@ -120,11 +120,15 @@ for(;i<42;i++) {
             });
         }
         
-~~등 다양한 시도를 해봤지만 실패. 간단한 해답이 있을듯도 하지만 현재로썬
-각 버튼들에 각자의 온클릭리스너를 정의해주는 방법밖엔 없는듯~~
+/*등 다양한 시도를 해봤지만 실패. 간단한 해답이 있을듯도 하지만 현재로썬
+각 버튼들에 각자의 온클릭리스너를 정의해주는 방법밖엔 없는듯*/
 헛지랄이였고 코드 잘못써서 안된거.
 sol 2 방법으로 구현.
 __버튼을 this로 삼는 리스너 정의?__ inner와 outter 개념을 제대로 알아둬야 
 ```
 </div>
 </details>
+  - <details>Installation failed with message Failed to establish session.
+It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.
+
+WARNING: Uninstalling will remove the application data!</details>
