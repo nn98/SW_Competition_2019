@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#444444"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+    <!--타이틀바 레이아웃-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--타이틀-->
+        <TextView
+            android:id="@+id/title"
+            android:text="Title"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:background="#00dd00"
+            android:layout_width="match_parent"
+            android:layout_height="53dp" />
+    </LinearLayout>
+    <!-- //end 타이틀바 -->
+
+    <!--내부 내용 레이아웃-->
+    <LinearLayout
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--***체크리스트 앞, 뒤 확인, [ 제거. 안보임***-->
+
+        <!--check 관련 레이아웃, 액티비티-->
+        <TextView
+            android:id="@+id/check"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:visibility="invisible"/>
+        <!--뭔지모름-->
+        <TextView
+            android:id="@+id/check0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
+        <!--체크박스 레이아웃-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <CheckBox
+                android:id="@+id/act"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#00dd00"
+                android:text="운동"/>
+            <CheckBox
+                android:id="@+id/std"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#00dd00"
+                android:text="공부"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <CheckBox
+                android:id="@+id/ex1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#00dd00"
+                android:text="기타"/>
+            <CheckBox
+                android:id="@+id/ex2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#00dd00"
+                android:text="기타"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <CheckBox
+                android:id="@+id/ex3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#00dd00"
+                android:text="기타"/>
+            <CheckBox
+                android:id="@+id/ex4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#00dd00"
+                android:text="기타"/>
+        </LinearLayout>
+        <!--메모-->
+        <EditText
+            android:id="@+id/txtText"
+            android:textSize="15sp"
+            android:textColor="#00dd00"
+            android:alpha="0.87"
+            android:gravity="center"
+            android:layout_marginBottom="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Memo"/>
+    </LinearLayout>
+    <!--?-->
+    <View
+        android:background="#66bdbdbd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!--닫기 버튼 레이아웃-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--닫기 버튼. 마찬가지로 onClick 액티비티. 데이터 전송-->
+        <Button
+            android:id="@+id/close"
+            android:onClick="mOnClose"
+            android:text="확인"
+            android:textSize="15sp"
+            android:textColor="#00dd00"
+            android:padding="16dp"
+            android:gravity="center"
+            android:background="#00000000"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"/>
+    </LinearLayout>
+
+</LinearLayout>

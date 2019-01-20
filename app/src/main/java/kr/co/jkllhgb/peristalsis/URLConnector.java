@@ -21,6 +21,11 @@ class URLConnector extends Thread {
         result = output;
     }
 
+    public String refresh() {
+        final String output = request(URL);
+        result = output;
+        return getResult();
+    }
     public String getResult(){
         return result;
     }

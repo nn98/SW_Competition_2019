@@ -1,10 +1,12 @@
 package kr.co.jkllhgb.peristalsis;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,12 +15,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Random;
 
 public class activity_6202 extends Activity {
-    String test;
-    URLConnector task;
+    /*  시연당시 어플리케이션 코드
     int i = 42;
     Button btnarray[];
     int status[];
@@ -33,12 +36,85 @@ public class activity_6202 extends Activity {
     LinearLayout layout6;
     LinearLayout layout7;
     LinearLayout layout8;
+    Intent intent;
+     */
+
+    /*  레이아웃 id값 직접 추출(String 으로 변수 이름 표현)을 위한 reflect 연습- 실패 코드
+    protected static String aaa = "Plz";
+
+    private static activity_6202 t_instance;
+
+    public static activity_6202 getInstance() throws Exception {
+        t_instance = new activity_6202();
+        return t_instance;
+    }
+
+    public static Object getProperty(String key) throws Exception {
+        return t_instance.getClass().getDeclaredField(key).get(t_instance); // key 값으로 aaa 가 들어오고 return은 Plz 가 필요함.
+    }
+    public static void main(String[] args) {
+
+    }
+     */
+
+    String test;
+    URLConnector task;
+    Button btn6202;
+    Button[] pcA;
+    int[] pcId;
+    int[] statusA;
+    Intent intent;
+    int i=0;
+    int j=0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_6202);
 
-        test = "http://121.125.203.54/Connect1.php";
+        // R을 활용한 id값 직접 추출을 위한 코드 연습----------------
+        System.out.println("Print Test");
+        R.id testing=new R.id();
+        Class c=testing.getClass();
+        String className=c.getName();
+        /*
+        Class noparams[] = {};
+        //String parameter
+        Class[] paramString = new Class[1];
+        paramString[0] = String.class;
+        //int parameter
+        Class[] paramInt = new Class[1];
+        paramInt[0] = Integer.TYPE;
+         */
+        // 레이아웃 pc들의 id 저장
+        pcId=new int[42];
+        try{
+            //load the AppTest at runtime
+            Class cls = Class.forName(className);
+            Object obj = cls.newInstance();
+            //call the printIt method
+            for(int i=1;i<43;i++) {
+                Field f = cls.getDeclaredField("pc"+Integer.toString(i));
+                f.setAccessible(true);
+                Object val=f.get(obj);
+                pcId[i-1]=(Integer)val;
+            }
+
+            //System.out.println(val);      확인용
+            //System.out.println(R.id.pc1); 확인용
+            //System.out.println(Arrays.toString(pcId)); 확인용
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        //------------------------------------------------------- 까지. 성공.
+        btn6202=(Button)findViewById(R.id.btn6202);
+        btn6202.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn6202.setText("Click Test");
+            }
+        });
+        test = "http://123.111.136.96/Connect1.php";
         task = new URLConnector(test);
         task.start();
 
@@ -46,11 +122,10 @@ public class activity_6202 extends Activity {
             task.join();
             System.out.println("waiting... for result");
         } catch (InterruptedException e) {
-
+            e.printStackTrace();
         }
-
         String result = task.getResult();
-        int stat=-1;
+        /*
         try {
             JSONObject root=new JSONObject(result);
 
@@ -64,13 +139,73 @@ public class activity_6202 extends Activity {
         catch (JSONException e) {
             e.printStackTrace();
         }
-
+         */
         System.out.println(result);
-
         String[] s;
         s=result.trim().split("");
 
+        pcA=new Button[42];
+        statusA=new int[42];
+        intent=new Intent(this,activity_desktop.class);
 
+        for(;i<42;i++) {
+            pcA[i]=(Button)findViewById(pcId[i]);
+            statusA[i]=Integer.parseInt(s[i+1]);
+            pcstatus(pcA[i],statusA[i]);
+            pcA[i].setOnClickListener(new View.OnClickListener() {
+                final int j=i;
+                @Override
+                public void onClick(View v) {
+                    intent.putExtra("pc_Number",pcA[j].getText());
+                    startActivityForResult(intent, 1);
+                }
+            });
+        }
+        /* 가장 큰 문제점 -------------------------------------------------------
+
+
+        public void popUpClick(Button b) {
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent.putExtra("pc_Number",b.getText());
+                    startActivityForResult(intent, 1);
+                }
+            });
+        } ------------------------------------------------------------------------
+         */
+        // popUpSet(); 헛짓
+        /*
+        pcA[5].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pcA[5].setText("Suc");
+            }
+        }); 테스트용 코드
+         */
+        btn6202.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i=0;
+                task.start();
+                try {
+                    task.join();
+                    System.out.println("waiting... for result");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                String result = task.getResult();
+                task.interrupt();
+                System.out.println(result);
+                String[] s;
+                s=result.trim().split("");
+                for(;i<42;i++) {
+                    statusA[i] = Integer.parseInt(s[i + 1]);
+                    pcstatus(pcA[i], statusA[i]);
+                }
+            }
+        });
+        /* 시연당시 어플리케이션 코드
         Random rnd = new Random();
 
         btnarray = new Button[42];
@@ -138,6 +273,13 @@ public class activity_6202 extends Activity {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(70, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(2, 2, 2, 2);
             b.setLayoutParams(params);
+            intent=new Intent(this,activity_desktop.class);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivityForResult(intent,1);
+                }
+            });
             layout8.addView(b);
             if (i % 2 == 1) {
                 TextView t = new TextView((this));
@@ -257,13 +399,311 @@ public class activity_6202 extends Activity {
             btncount++;
         }
     }
-
+         */
+    }
+    public void popUpSet() {
+        // 헛지랄이였네?
+        int k=0;
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",1);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",2);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",3);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",4);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",5);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",6);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",7);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",8);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",9);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",10);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",11);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",12);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",13);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",14);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",15);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",16);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",17);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",18);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",19);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",20);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",21);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",22);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",23);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",24);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",25);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",26);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",27);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",28);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",29);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",30);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",31);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",32);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",33);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",34);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",35);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",36);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",37);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",38);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",39);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",40);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",41);
+                startActivityForResult(intent, 1);
+            }
+        });
+        pcA[k++].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",42);
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
     public void pcstatus(Button b, int i){
-        if (i <= 5){
-            b.setBackgroundColor(Color.rgb(183,183,183));
-        }
-        else if (i >=8){
-            b.setBackgroundColor(Color.rgb(247,208,236));
+        if (i <= 5) {
+            b.setBackgroundColor(Color.rgb(183, 183, 183));
+        } else if (i >= 8) {
+            b.setBackgroundColor(Color.rgb(0, 225, 00));
         }
     }
 }
