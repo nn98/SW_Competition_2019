@@ -14,7 +14,6 @@ testing success
 |--|--|
 |자바 코드에서 생성된 버튼 조작 어려움|xml에서 버튼 생성-자바 코드에서 R, R.id 활용해 버튼 정의 후 조작|
 |새로고침 기능 부적절|데이터 커넥팅 스레드로 구현, 스레드 활용한 새로고침 기능 구현---스레드 실행, 정지 기능 활용 미흡|
-기존 코드
 ```java
 for (; i > 36; i--) {
             Button b = new Button(this);
@@ -68,6 +67,45 @@ for(;i<42;i++) {
                 }
             });
         }
+```
+변환 필요점
+```java
+int i;
+/
+/
+/
+i=0;
+        for(;i<42;i++) {
+            pcA[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent.putExtra("pc_Number",pcA[i].getText());
+                    startActivityForResult(intent, 1);
+                }
+            });
+        }
+해당 코드의 문제는 onClickListener의 정의에 사용한 i로 인해 발생한다. 
+
+"Variable '...' is accessed from within inner class, needs to be declared final"
+런타임 에러를 회피하기 위해 사용한 outer class 변수 i지만, 위와 같은 코드로
+pcA 배열 버튼들의 onClickListener를 정의한 경우 모든 pcA 배열 버튼들은
+클릭 이벤트가 발생할 경우 현재 i의 값을 불러온다.
+위의 코드의 경우 i의 값이 42로 설정되며 반복문이 마무리되는데,
+이 경우 모든 pcA 배열의 버튼들은 클릭될 경우 pcA[42].getText()를 실행하게 되는 것이다.
+
+public void popUpClick(Button b) {
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("pc_Number",b.getText());
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+final int j=i; 등 다양한 시도를 해봤지만 실패. 간단한 해답이 있을듯도 하지만 현재로썬
+각 버튼들에 각자의 온클릭리스너를 정의해주는 방법밖엔 없는듯 하다.
+버튼을 this로 삼는 리스너 정의?
 ```
 </div>
 </details>
