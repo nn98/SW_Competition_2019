@@ -128,6 +128,10 @@ __버튼을 this로 삼는 리스너 정의?__ inner와 outter 개념을 제대�
 ```
 </div>
 </details>
+<details><summary>참고 자료</summary>
+  [버튼 클릭이벤트 재구현](http://jizard.tistory.com/9),[버튼 클릭이벤트 재구현2](https://medium.com/@henen/%EB%B9%A0%EB%A5%B4%EA%B2%8C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-clickevent%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-3%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95-annoymous-class-%EC%9D%B5%EB%AA%85-%ED%81%B4%EB%9E%98%EC%8A%A4-implements-1b1fbe1a74c0)
+__[Reflection 활용한 메소드 가져오기](http://www.mkyong.com/java/how-to-use-reflection-to-call-java-method-at-runtime/),[필드 조작에 사용](https://code.i-harness.com/ko-kr/q/cc780b),[문법 참조](http://darkhorizon.tistory.com/290)__
+  </ditails>
 <details><summary>오류 목록</summary>
   
   __Application Installation Failed-__
@@ -140,7 +144,7 @@ __버튼을 this로 삼는 리스너 정의?__ inner와 outter 개념을 제대�
   
   WARNING: Uninstalling will remove the application data!
 
-__해결 -__ _http://codedragon.tistory.com/7837_
+__Solve-__ _http://codedragon.tistory.com/7837_
 
 Step 1: 디바이스 종료
 
