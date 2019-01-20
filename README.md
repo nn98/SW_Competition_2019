@@ -129,13 +129,14 @@ __버튼을 this로 삼는 리스너 정의?__ inner와 outter 개념을 제대�
 </div>
 </details>
 <details><summary>오류 목록</summary>
-  Application Installation Failed-
+  
+  __Application Installation Failed-__
   
   Installation failed with message Failed to establish session.
   It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.
   WARNING: Uninstalling will remove the application data!
 
-해결 -
+__해결 -__
 
 Step 1: 디바이스 종료
 
@@ -149,5 +150,5 @@ Step 2: AndroidStduio에서 아래와 같이 수행합니다.
 
 Run
 
-http://codedragon.tistory.com/7837
+_http://codedragon.tistory.com/7837_
 </details>
