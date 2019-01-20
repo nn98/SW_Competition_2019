@@ -9,8 +9,8 @@ testing success
     - 레이아웃 등 부가적 구성 이외의 실질적 어플리케이션 기능 구현 완료.
   - 19-01-21 05:00 기존 기능 전체 재구현. 리프레시 기능 구현 과정에서 스레드 조작에 난항.
   - <details>
-  <summary>접기/펼치기 버튼</summary>
-  <div markdown="1">
+<summary>접기/펼치기 버튼</summary>
+<div markdown="1">
 |제목|내용|
 |--|--|
 |1|1|
