@@ -128,10 +128,9 @@ __버튼을 this로 삼는 리스너 정의?__ inner와 outter 개념을 제대�
 ```
 </div>
 </details>
-<details><summary>오류 목록</summary>1- 스레드 조작 과정에서 갑자기 렉 발생 후 발생.
+<details><summary>오류 목록</summary>1- 스레드 조작 과정에서 갑자기 렉 발생, 강제종료 후 오류 발생.
   
   Installation failed with message Failed to establish session.
-  
   
 It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.
 
