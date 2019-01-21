@@ -251,5 +251,5 @@ Run
   - 결과물 
   <img src="./Screenshot_1548112694.png" alt="drawing" width="432" height="768"/> 
   
-  ~ 19-01-22 8:21 
+  ~ 19-01-22 8:21 Commit...
   </details>
