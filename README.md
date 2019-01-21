@@ -241,5 +241,11 @@ Run
   웹상 솔루션 활용해 해결 - [Thread + Handler로 현재 시간을 갱신하여 보여주기](http://blog.naver.com/PostView.nhn?blogId=bho7982&logNo=220908514907&parentCategoryNo=&categoryNo=106&viewDate=&isShowPopularPosts=false&from=postView)
   
   ~ 7:49 레이아웃 가시성, 편의성 향상--- drawable , onTouchListener 활용.
-    - [android 커스텀 xml 둥근버튼 만들기](https://commin.tistory.com/25) , [버튼 이외 위젯에 클릭효과 구현](https://www.androidpub.com/1596818) , [버튼 스타일 적용 및 컨트롤](https://m.blog.naver.com/PostView.nhn?blogId=sangrime&logNo=220596277712&proxyReferer=https%3A%2F%2Fwww.google.com%2F) , [색상, 그라데이션, 테두리, 스타일, 이미지 버튼, 가장자리를 둥글게 만들기](https://withcoding.com/20) , [안드로이드 이벤트 : 버튼 클릭,롱클릭, 터치](https://bitsoul.tistory.com/13) , [Java 액티비티에서 Drawable 설정](https://choipandes.kr/23)
+  
+  - [android 커스텀 xml 둥근버튼 만들기](https://commin.tistory.com/25) , 
+  - [버튼 이외 위젯에 클릭효과 구현](https://www.androidpub.com/1596818) , 
+  - [버튼 스타일 적용 및 컨트롤](https://m.blog.naver.com/PostView.nhn?blogId=sangrime&logNo=220596277712&proxyReferer=https%3A%2F%2Fwww.google.com%2F) , 
+  - [색상, 그라데이션, 테두리, 스타일, 이미지 버튼, 가장자리를 둥글게 만들기](https://withcoding.com/20) , 
+  - [안드로이드 이벤트 : 버튼 클릭,롱클릭, 터치](https://bitsoul.tistory.com/13) , 
+  - [Java 액티비티에서 Drawable 설정](https://choipandes.kr/23)
   </details>
