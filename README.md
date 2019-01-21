@@ -208,11 +208,12 @@ Run
         });
   ```
   ~ 6:48 현재시간 표기, 갱신 레이아웃 구현 시도(스레드 활용)--- 실패. _handler 사용이 필요한 구현인 듯_
+  
   기본 코드 - [현재 시간 출력하기](https://medium.com/@peteryun/android-how-to-print-current-date-and-time-in-java-45b884917c6f)
   
   갱신 시도(스레드, while문 사용) - [스레드 종료](http://www.masterqna.com/android/35826/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%EB%A0%88%EB%93%9C-%EC%A2%85%EB%A3%8C-%EC%A7%88%EB%AC%B8)
   
-  스레드와 반복문을 사용해 갱신되는 시계 위젯을 만드는데 성공했지만 액티비티 재실행 시 스레드 충돌로 예상되는 오류 발생. _handler_
+  스레드와 반복문을 사용해 갱신되는 시계 구현 성공, 액티비티 재실행 시 스레드 충돌로 예상되는 오류 발생. _handler_
   
   "java.lang.NullPointerException: Attempt to invoke virtual method 'int android.text.Layout.getLineCount()' on a null object reference
         at android.widget.TextView.onMeasure(TextView.java:8628) ....."
