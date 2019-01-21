@@ -169,6 +169,7 @@ Step 2: AndroidStduio에서 아래와 같이 수행합니다.
 Run
 
 </details>
+</details>
 
   - 19-01-22 05:24~ 기능 추가와 기능 개편, 개발 진행과 더불어 개발능력 향상 시도.
 <details><summary>개발 진행</summary><div markdown="1">
