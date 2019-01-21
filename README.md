@@ -169,3 +169,47 @@ Step 2: AndroidStduio에서 아래와 같이 수행합니다.
 Run
 
 </details>
+
+  - 19-01-22 05:24~ 기능 추가와 기능 개편, 개발 진행과 더불어 개발능력 향상 시도.
+<details><summary>개발 진행</summary><div markdown="1">
+  
+  이전 작업에서의 문제점 해결 ___
+  |문제점|해결|
+  |--|--|
+  |새로고침 기능 부적절|데이터 커넥팅 스레드로 구현, 스레드 활용한 새로고침 기능 구현---스레드 실행, 정지 기능 활용 미흡|
+  |----|----|
+  |새로고침 기능 구현에 레이아웃 실행시 생성된 스레드 재사용 시도|새로고침 버튼이 클릭될 시 새로운 URLConnector 생성 후 start하도록--- 성공.|
+  ```java
+  btn6202.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i=0;
+                URLConnector task = new URLConnector(test);
+                task.start();
+                try {
+                    task.join();
+                    System.out.println("waiting... for result");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                String result = task.getResult();
+                System.out.println(result);
+                task.interrupt();
+                String[] s;
+                s=result.trim().split("");
+                for(;i<42;i++) {
+                    statusA[i] = Integer.parseInt(s[i + 1]);
+                    pcstatus(pcA[i], statusA[i]);
+                }
+            }
+        });
+  ```
+  ~ 6:48 현재시간 표기, 갱신 레이아웃 구현 시도(스레드 활용)--- 실패. _handler 사용이 필요한 구현인 듯_
+  기본 코드 - [현재 시간 출력하기](https://medium.com/@peteryun/android-how-to-print-current-date-and-time-in-java-45b884917c6f)
+  갱신 시도(스레드, while문 사용) - [스레드 종료](http://www.masterqna.com/android/35826/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%EB%A0%88%EB%93%9C-%EC%A2%85%EB%A3%8C-%EC%A7%88%EB%AC%B8)
+  스레드와 반복문을 사용해 갱신되는 시계 위젯을 만드는데 성공했지만 액티비티 재실행 시 스레드 충돌로 예상되는 오류 발생. _handler_
+  웹상 솔루션 활용해 해결 - [Thread + Handler로 현재 시간을 갱신하여 보여주기](http://blog.naver.com/PostView.nhn?blogId=bho7982&logNo=220908514907&parentCategoryNo=&categoryNo=106&viewDate=&isShowPopularPosts=false&from=postView)
+  
+  ~ 7:49 레이아웃 가시성, 편의성 향상--- drawable , onTouchListener 활용.
+  [android 커스텀 xml 둥근버튼 만들기](https://commin.tistory.com/25) , [버튼 이외 위젯에 클릭효과 구현](https://www.androidpub.com/1596818) , [버튼 스타일 적용 및 컨트롤](https://m.blog.naver.com/PostView.nhn?blogId=sangrime&logNo=220596277712&proxyReferer=https%3A%2F%2Fwww.google.com%2F) , [색상, 그라데이션, 테두리, 스타일, 이미지 버튼, 가장자리를 둥글게 만들기](https://withcoding.com/20) , [안드로이드 이벤트 : 버튼 클릭,롱클릭, 터치](https://bitsoul.tistory.com/13) , [Java 액티비티에서 Drawable 설정](https://choipandes.kr/23)
+  </details>
