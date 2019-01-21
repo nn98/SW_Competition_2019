@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -59,7 +61,7 @@ public class activity_6202 extends Activity {
 
     String test;
     URLConnector task;
-    Button btn6202;
+    Button refresh;
     Button[] pcA;
     int[] pcId;
     int[] statusA;
@@ -107,17 +109,21 @@ public class activity_6202 extends Activity {
             ex.printStackTrace();
         }
         //------------------------------------------------------- 까지. 성공.
-        btn6202=(Button)findViewById(R.id.btn6202);
-        btn6202.setOnClickListener(new View.OnClickListener() {
+        refresh=(Button)findViewById(R.id.refresh);
+        refresh.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                btn6202.setText("Click Test");
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN : refresh.setText("Refreshing...");break;
+                    case MotionEvent.ACTION_MOVE : refresh.setText("Refreshing...");break;
+                    case MotionEvent.ACTION_UP   : refresh.setText("Refreshing...");break;
+                }
+                return false;
             }
         });
         test = "http://123.111.136.96/Connect1.php";
         task = new URLConnector(test);
         task.start();
-
         try {
             task.join();
             System.out.println("waiting... for result");
@@ -125,6 +131,7 @@ public class activity_6202 extends Activity {
             e.printStackTrace();
         }
         String result = task.getResult();
+        task.interrupt();
         /*
         try {
             JSONObject root=new JSONObject(result);
@@ -183,10 +190,11 @@ public class activity_6202 extends Activity {
             }
         }); 테스트용 코드
          */
-        btn6202.setOnClickListener(new View.OnClickListener() {
+        refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i=0;
+                URLConnector task = new URLConnector(test);
                 task.start();
                 try {
                     task.join();
@@ -195,14 +203,15 @@ public class activity_6202 extends Activity {
                     e.printStackTrace();
                 }
                 String result = task.getResult();
-                task.interrupt();
                 System.out.println(result);
+                task.interrupt();
                 String[] s;
                 s=result.trim().split("");
                 for(;i<42;i++) {
                     statusA[i] = Integer.parseInt(s[i + 1]);
                     pcstatus(pcA[i], statusA[i]);
                 }
+                refresh.setText("REFRESH");
             }
         });
         /* 시연당시 어플리케이션 코드
@@ -701,9 +710,9 @@ public class activity_6202 extends Activity {
     }
     public void pcstatus(Button b, int i){
         if (i <= 5) {
-            b.setBackgroundColor(Color.rgb(183, 183, 183));
+            b.setBackground(getResources().getDrawable(R.drawable.pc_off));
         } else if (i >= 8) {
-            b.setBackgroundColor(Color.rgb(0, 225, 00));
+            b.setBackground(getResources().getDrawable(R.drawable.pc_on));
         }
     }
 }

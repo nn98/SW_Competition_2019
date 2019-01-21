@@ -4,16 +4,28 @@
     android:orientation="vertical"
     android:layout_width="300dp"
     android:layout_height="wrap_content">
-
+    <TextView
+        android:id="@+id/now"
+        android:text="0000-00-00"
+        android:textSize="10sp"
+        android:textColor="#0ff"
+        android:gravity="center"
+        android:background="#222222"
+        android:layout_marginBottom="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <!--타이틀바 레이아웃-->
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <!--타이틀-->
         <TextView
             android:id="@+id/title"
             android:text="Title"
+            android:layout_margin="1dp"
             android:textSize="20sp"
             android:textColor="#000"
             android:gravity="center"
@@ -44,7 +56,7 @@
             android:layout_height="wrap_content"
             android:visibility="invisible"/>
         <!--체크박스 레이아웃-->
-        <LinearLayout
+        <!-- <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,6 +118,7 @@
                 android:textColor="#00dd00"
                 android:text="기타"/>
         </LinearLayout>
+        -->
         <!--메모-->
         <EditText
             android:id="@+id/txtText"
