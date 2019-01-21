@@ -248,4 +248,5 @@ Run
   - [색상, 그라데이션, 테두리, 스타일, 이미지 버튼, 가장자리를 둥글게 만들기](https://withcoding.com/20) , 
   - [안드로이드 이벤트 : 버튼 클릭,롱클릭, 터치](https://bitsoul.tistory.com/13) , 
   - [Java 액티비티에서 Drawable 설정](https://choipandes.kr/23)
+  - <img src="./Screenshot_1548112694.png" alt="drawing" width="432" height="768"/> 
   </details>
