@@ -22,6 +22,8 @@
         <activity
             android:name=".activity_desktop"
             android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".LoadingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>

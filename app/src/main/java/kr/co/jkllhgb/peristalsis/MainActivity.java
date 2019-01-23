@@ -31,12 +31,20 @@ else{
 package kr.co.jkllhgb.peristalsis;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,11 +54,60 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
-public class MainActivity extends Activity {
-    LinearLayout layout;
+public class MainActivity extends Activity  implements View.OnClickListener{
+
+    private String TAG = "MainActivity";
+
+    private Context mContext = MainActivity.this;
+
+    private ViewGroup mainLayout;   //사이드 나왔을때 클릭방지할 영역
+    private ViewGroup viewLayout;   //전체 감싸는 영역
+    private ViewGroup sideLayout;   //사이드바만 감싸는 영역
+
+    private Boolean isMenuShow = false;
+    private Boolean isExitFlag = false;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(isMenuShow){
+            closeMenu();
+        }else{
+
+            if(isExitFlag){
+                finish();
+            } else {
+
+                isExitFlag = true;
+                Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.",  Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        isExitFlag = false;
+                    }
+                }, 2000);
+            }
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = new Intent(this,LoadingActivity.class);
+        startActivity(intent);
+        init();
+        addSideView();
         /*
         try {
             ip=getLocalHostLANAddress();
@@ -59,10 +116,86 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }//프로젝트에서 사용했던 getLH 시도- 실패. java.lang.RuntimeException: Unable to start activity ComponentInfo
          */
+    }
 
-        layout=(LinearLayout)findViewById(R.id.createlayout);
+    private void init(){
+
+        findViewById(R.id.btn_menu).setOnClickListener(this);
+
+        mainLayout = findViewById(R.id.id_main);
+        viewLayout = findViewById(R.id.fl_silde);
+        sideLayout = findViewById(R.id.view_sildebar);
 
     }
+
+    private void addSideView(){
+
+        SideBarView sidebar = new SideBarView(mContext);
+        sideLayout.addView(sidebar);
+
+        viewLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        sidebar.setEventListener(new SideBarView.EventListener() {
+
+            @Override
+            public void btnCancel() {
+                Log.e(TAG, "btnCancel");
+                closeMenu();
+            }
+
+            @Override
+            public void btnLevel1() {
+                Log.e(TAG, "btnLevel1");
+
+                closeMenu();
+            }
+        });
+    }
+
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+
+            case R.id.btn_menu :
+
+                showMenu();
+                break;
+        }
+    }
+
+    public void closeMenu(){
+
+        isMenuShow = false;
+        Animation slide = AnimationUtils.loadAnimation(mContext, R.anim.sidebar_hidden);
+        sideLayout.startAnimation(slide);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                viewLayout.setVisibility(View.GONE);
+                viewLayout.setEnabled(false);
+                mainLayout.setEnabled(true);
+            }
+        }, 450);
+    }
+
+    public void showMenu(){
+
+        isMenuShow = true;
+        Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_show);
+        sideLayout.startAnimation(slide);
+        viewLayout.setVisibility(View.VISIBLE);
+        viewLayout.setEnabled(true);
+        mainLayout.setEnabled(false);
+        Log.e(TAG, "메뉴버튼 클릭");
+    }
+
     private static String getLocalHostLANAddress() throws UnknownHostException {
         InetAddress local = null;		//현재 컴퓨터 IP 받아오는 함수
         try {
