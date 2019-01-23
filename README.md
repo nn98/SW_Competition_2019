@@ -215,6 +215,8 @@ Run
   
   스레드와 반복문을 사용해 갱신되는 시계 구현 성공, 액티비티 재실행 시 스레드 충돌로 예상되는 오류 발생. _handler_
   
+  오류 메세지, 실패 코드
+  
   "java.lang.NullPointerException: Attempt to invoke virtual method 'int android.text.Layout.getLineCount()' on a null object reference
         at android.widget.TextView.onMeasure(TextView.java:8628) ....."
   
@@ -238,7 +240,7 @@ Run
     }
   ```
    
-  웹상 솔루션 활용해 해결 - [Thread + Handler로 현재 시간을 갱신하여 보여주기](http://blog.naver.com/PostView.nhn?blogId=bho7982&logNo=220908514907&parentCategoryNo=&categoryNo=106&viewDate=&isShowPopularPosts=false&from=postView)
+  웹상 솔루션 활용해 해결 - [Thread + Handler로 현재 시간을 갱신하여 보여주기](http://blog.naver.com/PostView.nhn?blogId=bho7982&logNo=220908514907&parentCategoryNo=&categoryNo=106&viewDate=&isShowPopularPosts=false&from=postView) , [Thread 활용해 갱신](http://www.masterqna.com/android/30459/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%98%84%EC%9E%AC%EC%8B%9C%EA%B0%84-%EA%B5%AC%ED%95%98%EA%B8%B0-%EC%8B%9C%EA%B0%84%EC%A7%80%EB%82%98%EA%B2%8C)
   
   ~ 7:49 레이아웃 가시성, 편의성 향상--- drawable , onTouchListener 활용.
   
