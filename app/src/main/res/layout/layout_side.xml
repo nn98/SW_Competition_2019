@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ddddff">
+    android:background="#ddddff"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="#00ff00"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:background="@drawable/sidebg00">
 
         <ImageButton
             android:id="@+id/btn_cancel"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:background="@drawable/close1"/>
+            android:background="@drawable/close4" />
 
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0.7dp"
             android:layout_alignParentBottom="true"
-            android:background="#202735"/>
+            android:background="#202735" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="132dp">
 
         <ImageView
             android:layout_width="match_parent"
-            android:background="@drawable/bg00"
-            android:layout_height="160dp"/>
+            android:layout_height="130dp"
+            android:background="@drawable/bg03" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0.7dp"
             android:layout_alignParentBottom="true"
-            android:background="#202735"/>
+            android:background="#202735" />
 
     </RelativeLayout>
 
@@ -50,40 +50,51 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lecture Status"
+            android:background="#222266"
+            android:textColor="#fff"
+            android:textSize="30dp"/>
+        -->
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:gravity="top"
-            android:layout_height="60dp">
+            android:layout_height="wrap_content"
+            android:gravity="top">
 
             <TextView
                 android:id="@+id/lec6202"
-                android:clickable="true"
-                android:onClick="mOnPopupClick"
-                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="15dp"
-                android:text="Lecture_6202"
-                android:textSize="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/lecture"
-                android:textColor="#8089ff"/>
+                android:clickable="true"
+                android:gravity="left"
+                android:onClick="mOnPopupClick"
+                android:text="Lecture_6202"
+                android:textColor="#fff"
+                android:textSize="15dp" />
 
             <ImageButton
                 android:id="@+id/btn_side_level_1"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
-                android:layout_marginRight="15dp"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/play"/>
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/play00" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
                 android:layout_alignParentBottom="true"
-                android:background="#202735"/>
+                android:background="#202735" />
 
         </RelativeLayout>
+
 
     </LinearLayout>
 

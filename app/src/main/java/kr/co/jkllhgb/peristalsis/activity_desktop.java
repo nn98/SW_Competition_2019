@@ -24,7 +24,7 @@ import java.util.Date;
 public class activity_desktop extends Activity {
     TextView txtText;
     TextView title;
-    TextView now;
+    //TextView now;
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("onCreate");
         //타이틀바 제거
@@ -33,8 +33,8 @@ public class activity_desktop extends Activity {
         setContentView(R.layout.activity_desktop);
 
         //현재시간 출력
-        now = (TextView)findViewById(R.id.now);
-        ShowTimeMethod();
+        //now = (TextView)findViewById(R.id.now);
+        //ShowTimeMethod();
         // SimpleDateFormat sdf = new SimpleDateFormat("hh");
 
         //UI 객체생성
@@ -76,6 +76,7 @@ public class activity_desktop extends Activity {
         return;
     }
 
+    /*
     public void ShowTimeMethod() {
         final Handler handler = new Handler() {
             @Override
@@ -98,6 +99,7 @@ public class activity_desktop extends Activity {
         Thread thread = new Thread(task);
         thread.start();
     }
+     */
 }   //http://blog.naver.com/PostView.nhn?blogId=bho7982&logNo=220908514907&parentCategoryNo=&categoryNo=106&viewDate=&isShowPopularPosts=false&from=postView
 
     /* 현재시간 갱신용 메소드- 실패

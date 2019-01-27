@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -19,7 +21,9 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 
 public class activity_6202 extends Activity {
@@ -58,7 +62,7 @@ public class activity_6202 extends Activity {
 
     }
      */
-
+    TextView now;
     String test;
     URLConnector task;
     Button refresh;
@@ -73,7 +77,8 @@ public class activity_6202 extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_6202);
-
+        now=(TextView)findViewById(R.id.now);
+        ShowTimeMethod();
         // R을 활용한 id값 직접 추출을 위한 코드 연습----------------
         System.out.println("Print Test");
         R.id testing=new R.id();
@@ -121,7 +126,7 @@ public class activity_6202 extends Activity {
                 return false;
             }
         });
-        test = "http://123.111.136.96/Connect1.php";
+        test = "http://210.94.111.229/Connect1.php";
         task = new URLConnector(test);
         task.start();
         try {
@@ -409,6 +414,28 @@ public class activity_6202 extends Activity {
         }
     }
          */
+    }
+    public void ShowTimeMethod() {
+        final Handler handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                // DateFormat 세팅 - 변수생성 후 호출 or 핸들러 내부에서 생성
+                now.setText(new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a").format(new Date()));
+            }
+        };
+        Runnable task = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {}
+                    handler.sendEmptyMessage(1);    //핸들러를 호출한다. 즉, 시간을 최신화 해준다.
+                }
+            }
+        };
+        Thread thread = new Thread(task);
+        thread.start();
     }
     public void popUpSet() {
         // 헛지랄이였네?
