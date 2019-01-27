@@ -173,8 +173,8 @@ Run
 
 
 
-
-
+<br />
+<br />
   - __19-01-22 05:24~ 기능 추가와 기능 개편, 개발 진행과 더불어 개발능력 향상 시도.__
 <details><summary>개발 진행</summary><div markdown="1">
   
@@ -255,3 +255,9 @@ Run
   
   ~ 19-01-22 8:21 Commit...
   </details>
+
+<br />
+<br />
+
+  - __19-01-27 09:18 편의성 개선 진행중...__
+    - <details><summary>개발 진행</summary><div markdown="1">
