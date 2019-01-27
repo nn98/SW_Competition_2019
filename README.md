@@ -262,4 +262,4 @@ Run
 <br />
 
   - __19-01-27 09:18 편의성 개선 진행중...__
-    - <details><summary>개발 진행</summary><div markdown="1"> [안드로이드 Drawable 활용](https://aroundck.tistory.com/751) , [안드로이드 View 그라데이션](https://kim6kim.tistory.com/3)</details>
+    - <details><summary>개발 진행</summary><div markdown="1"> [안드로이드 Drawable 활용](https://aroundck.tistory.com/751) <br /> [안드로이드 View 그라데이션](https://kim6kim.tistory.com/3)</details>
