@@ -11,7 +11,7 @@
     - 레이아웃 등 부가적 구성 이외의 실질적 어플리케이션 기능 구현 완료. <br />
     
   - __19-01-21 05:00__ 기존 기능 전체 재구현. 리프레시 기능 추가 구현 과정에서 스레드 조작에 난항.
-<details><summary>재구현 중점</summary><div markdown="1">
+    - <details><summary>재구현 중점</summary><div markdown="1">
 
 |문제점|해결방식|
 |--|--|
@@ -174,10 +174,9 @@ Run
 </details>
 </details>
 
-
-
 <br />
 <br />
+
   - __19-01-22 05:24~ 기능 추가와 기능 개편, 개발 진행과 더불어 개발능력 향상 시도.__
 <details><summary>개발 진행</summary><div markdown="1">
   
