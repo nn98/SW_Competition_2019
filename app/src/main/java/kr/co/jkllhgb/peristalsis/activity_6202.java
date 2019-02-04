@@ -21,9 +21,14 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Random;
 
 public class activity_6202 extends Activity {
@@ -126,7 +131,7 @@ public class activity_6202 extends Activity {
                 return false;
             }
         });
-        test = "http://210.94.111.229/Connect1.php";
+        test = "http://123.214.250.88/Connect1.php";
         task = new URLConnector(test);
         task.start();
         try {
@@ -414,6 +419,23 @@ public class activity_6202 extends Activity {
         }
     }
          */
+    }
+    // 내가 현재 부여받은 네트워크의 아이피를 보려고 할 때
+    public static String getLocalIpAddress() {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
     public void ShowTimeMethod() {
         final Handler handler = new Handler() {

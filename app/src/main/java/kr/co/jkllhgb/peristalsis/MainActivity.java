@@ -51,9 +51,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Arrays;
+import java.util.Enumeration;
 
 public class MainActivity extends Activity  implements View.OnClickListener{
 
@@ -105,6 +109,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        System.out.println(getLocalIpAddress());
         Intent intent = new Intent(this,LoadingActivity.class);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         startActivity(intent);
@@ -118,6 +123,24 @@ public class MainActivity extends Activity  implements View.OnClickListener{
             e.printStackTrace();
         }//프로젝트에서 사용했던 getLH 시도- 실패. java.lang.RuntimeException: Unable to start activity ComponentInfo
          */
+    }
+
+    // 내가 현재 부여받은 네트워크의 아이피를 보려고 할 때
+    public static String getLocalIpAddress() {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     private void init(){
