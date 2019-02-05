@@ -2,6 +2,7 @@ package kr.co.jkllhgb.peristalsis;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -39,10 +40,14 @@ public class activity_desktop extends Activity {
 
         //UI 객체생성
         title = (TextView)findViewById(R.id.title);
-        txtText = (TextView)findViewById(R.id.txtText);
+        // txtText = (TextView)findViewById(R.id.txtText); 메모
 
         Intent intent = getIntent();
         title.setText(intent.getStringExtra("pc_Number"));
+        if(intent.getBooleanExtra("pc_Status",false)) {
+            title.setTextColor(Color.rgb(0,0,0));
+            title.setBackgroundColor(Color.rgb(0,255,255));
+        }
         //데이터 가져오기
         //Intent intent = getIntent();
         //String data = intent.getStringExtra("data");

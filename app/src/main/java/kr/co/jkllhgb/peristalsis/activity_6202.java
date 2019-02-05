@@ -174,6 +174,7 @@ public class activity_6202 extends Activity {
                 @Override
                 public void onClick(View v) {
                     intent.putExtra("pc_Number",pcA[j].getText());
+                    intent.putExtra("pc_Status",statusA[j]>=8);
                     startActivityForResult(intent, 1);
                 }
             });

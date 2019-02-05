@@ -19,8 +19,8 @@
 
             <ImageButton
                 android:id="@+id/btn_menu"
-                android:layout_width="40dp"
-                android:layout_height="34dp"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="25dp"
                 android:background="@drawable/listbtn" />

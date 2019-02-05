@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/title"
-        android:text="0000-00-00"
+        android:text="PC_NUMBER"
         android:textSize="12sp"
         android:textColor="#fff"
         android:gravity="center"
@@ -124,9 +124,10 @@
         </LinearLayout>
         -->
         <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
             android:background="#0ff"
             android:orientation="horizontal">
             <TextView
@@ -135,7 +136,7 @@
                 android:textSize="13sp"
                 android:textColor="#0ff"
                 android:text="Online : "
-                android:layout_marginRight="3dp"
+                android:layout_marginRight="1.5dp"
                 android:paddingLeft="3dp"
                 android:background="#222"/>
             <TextView
@@ -148,9 +149,9 @@
                 android:background="#222"/>
         </LinearLayout>
         <LinearLayout
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:background="#0ff"
             android:orientation="horizontal">
             <TextView
@@ -159,7 +160,7 @@
                 android:textSize="13sp"
                 android:textColor="#0ff"
                 android:text="Duration : "
-                android:layout_marginRight="3dp"
+                android:layout_marginRight="1.5dp"
                 android:paddingLeft="3dp"
                 android:background="#222"/>
             <TextView
@@ -171,8 +172,8 @@
                 android:paddingLeft="8dp"
                 android:background="#222"/>
         </LinearLayout>
-        <!--메모-->
 
+        <!--메모
         <EditText
             android:id="@+id/txtText"
             android:textSize="15sp"
@@ -183,6 +184,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Memo"/>
+        -->
+
     </LinearLayout>
     <!--?-->
     <View

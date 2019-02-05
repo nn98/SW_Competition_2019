@@ -37,7 +37,7 @@
         android:background="#000"
         android:textColor="#fff"
         android:textAlignment="center"
-        android:text="Duration Lecture"
+        android:text="In Lecture"
         android:textSize="20sp" />
 
     <Button
@@ -72,7 +72,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_6"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -100,7 +100,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_5"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -128,7 +128,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_4"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -156,7 +156,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_3"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -212,7 +212,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_1"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -247,7 +247,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_12"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -275,7 +275,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_11"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -303,7 +303,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_10"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -331,7 +331,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_9"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -359,7 +359,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_8"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -387,7 +387,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_7"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -422,7 +422,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_18"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -450,7 +450,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_17"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -478,7 +478,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_16"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -506,7 +506,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_15"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -534,7 +534,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_14"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -562,7 +562,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_13"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -597,7 +597,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_24"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -625,7 +625,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_23"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -653,7 +653,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_22"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -681,7 +681,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_21"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -709,7 +709,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_20"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -737,7 +737,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_19"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -772,7 +772,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_30"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -800,7 +800,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_29"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -828,7 +828,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_28"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -856,7 +856,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_27"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -884,7 +884,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_26"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -912,7 +912,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_25"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -947,7 +947,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_36"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -975,7 +975,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_35"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1003,7 +1003,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_34"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1031,7 +1031,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_33"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1059,7 +1059,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_32"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1087,7 +1087,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_31"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1122,7 +1122,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_42"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1150,7 +1150,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_41"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1178,7 +1178,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_40"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1206,7 +1206,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_39"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1234,7 +1234,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_38"
                     android:textSize="4.5pt" />
 
                 <Button
@@ -1262,7 +1262,7 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PC_2"
+                    android:text="PC_37"
                     android:textSize="4.5pt" />
 
                 <Button
