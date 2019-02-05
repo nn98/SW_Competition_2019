@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!--pcNumber 라벨들 이후 변경-->
+
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"

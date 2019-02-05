@@ -12,6 +12,7 @@
 
         <ImageButton
             android:id="@+id/btn_cancel"
+            android:padding="4dp"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_alignParentRight="true"
@@ -29,23 +30,31 @@
     </RelativeLayout>
 
     <ImageView
-        android:background="@drawable/fadeline1"
+        android:background="@drawable/fadeline2"
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 
-    <ImageView
-        android:background="@drawable/fadeline1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="132dp">
+        android:layout_height="158dp">
 
         <ImageView
+            android:layout_marginTop="19dp"
+            android:background="@drawable/fadeline2"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="1dp" />
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
             android:background="@drawable/bg03" />
+        <ImageView
+            android:layout_marginTop="160dp"
+            android:background="@drawable/fadeline2"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -59,6 +68,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <ImageView
+            android:background="@drawable/fadeline2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
 
         <!--
         <TextView
@@ -79,6 +92,7 @@
                 android:id="@+id/lec6202"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/lecture"
                 android:clickable="true"
@@ -87,6 +101,32 @@
                 android:text="Lecture_6202"
                 android:textColor="#fff"
                 android:textSize="15dp" />
+
+            <ImageView
+                android:layout_marginTop="38dp"
+                android:background="@drawable/fadeline2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/lec6405"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/lecture"
+                android:clickable="true"
+                android:gravity="left"
+                android:onClick="mOnPopupClick"
+                android:text="Lecture_6405"
+                android:textColor="#fff"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:layout_marginTop="73dp"
+                android:background="@drawable/fadeline2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
 
             <ImageButton
                 android:id="@+id/btn_side_level_1"

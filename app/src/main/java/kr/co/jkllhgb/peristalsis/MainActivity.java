@@ -72,6 +72,12 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private Boolean isMenuShow = false;
     private Boolean isExitFlag = false;
 
+    String test;
+    URLConnector task;
+    TextView user;
+    TextView depart;
+    TextView code;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -109,7 +115,32 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // IP 확인 ___ 애뮬레이터를 실행하는 pc의 IP가 아닌 애뮬레이터 자체의 IP를 받아오는듯.
         System.out.println(getLocalIpAddress());
+
+        // user information 업로드용
+        test = "http://210.181.125.110/Connect2.php";
+        task = new URLConnector(test);
+        task.start();
+        try {
+            task.join();
+            System.out.println("waiting... for result");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String result = task.getResult();
+        task.interrupt();
+
+        String[] userInfo=result.trim().split(",");
+        System.out.println(Arrays.toString(userInfo));
+        user=(TextView)findViewById(R.id.user);
+        user.setText(userInfo[0]);
+        depart=(TextView)findViewById(R.id.depart);
+        depart.setText(userInfo[1]);
+        code=(TextView)findViewById(R.id.code);
+        code.setText(userInfo[2]);
+
         Intent intent = new Intent(this,LoadingActivity.class);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         startActivity(intent);

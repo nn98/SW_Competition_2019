@@ -131,7 +131,7 @@ public class activity_6202 extends Activity {
                 return false;
             }
         });
-        test = "http://123.214.250.88/Connect1.php";
+        test = "http://210.181.125.110/Connect1.php";
         task = new URLConnector(test);
         task.start();
         try {
