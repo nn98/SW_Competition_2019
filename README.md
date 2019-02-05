@@ -273,4 +273,5 @@ Run
   <br />
   
   - __19-02-05 19:31 편의성 개선, 디자인 완성도 향상, 사용자 정보 데이터베이스에서 로드.
-    - <img src="./Screenshot_1548112694.png" alt="drawing" width="432" height="768"/>
+  - 초기 구상 어플리케이션 완성. 추가 아이디어 구상과 기능 업그레이드까지 일시적 완성
+    - <details><summary>프로토타입 프리뷰</summary><img src="./proto1.png" alt="drawing" width="432" height="768"/><img src="./proto2.png" alt="drawing" width="432" height="768"/><img src="./proto3.png" alt="drawing" width="432" height="768"/></details>
