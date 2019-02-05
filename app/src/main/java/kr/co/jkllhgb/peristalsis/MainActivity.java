@@ -1,5 +1,5 @@
 /*
-php=Connect.php
+php - Connect.php
 <?php
 $conn = mysqli_connect("localhost", "root", "qq192837qq", "pj_pc");
 $query = "select * from pc";
@@ -21,6 +21,38 @@ if($result = mysqli_query($conn, $query)){
                 }
             echo "]";
     echo "}";
+}
+else{
+    echo "failed to get data from database.";
+}
+?>
+php - Connect1.php
+<?php
+$conn = mysqli_connect("localhost", "root", "qq192837qq", "pj_pc");
+$query = "select * from pc";
+if($result = mysqli_query($conn, $query)){
+    $row_num = mysqli_num_rows($result);
+            for($i = 0; $i < $row_num; $i++){
+                $row = mysqli_fetch_array($result);
+                echo "$row[PC_STATUS]";
+
+                }
+}
+else{
+    echo "failed to get data from database.";
+}
+?>
+php - Connect2.php
+<?php
+$conn = mysqli_connect("localhost", "root", "qq192837qq", "pj_pc");
+$query = "select * from user";
+if($result = mysqli_query($conn, $query)){
+    $row_num = mysqli_num_rows($result);
+            for($i = 0; $i < $row_num; $i++){
+                $row = mysqli_fetch_array($result);
+                echo "$row[name],$row[depart],$row[code]";
+
+                }
 }
 else{
     echo "failed to get data from database.";
