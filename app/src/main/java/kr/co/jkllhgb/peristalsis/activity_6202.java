@@ -3,6 +3,7 @@ package kr.co.jkllhgb.peristalsis;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,12 +20,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.net.HttpURLConnection;
 import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -74,14 +85,20 @@ public class activity_6202 extends Activity {
     Button[] pcA;
     int[] pcId;
     int[] statusA;
+    int[] statusB;
     Intent intent;
     int i=0;
     int j=0;
+    TextView node;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_6202);
+        Intent nIntent=getIntent();
+        statusB=nIntent.getIntArrayExtra("status");
+        System.out.println(Arrays.toString(statusB));
+        node=(TextView)findViewById(R.id.node);
         now=(TextView)findViewById(R.id.now);
         ShowTimeMethod();
         // R을 활용한 id값 직접 추출을 위한 코드 연습----------------
@@ -131,7 +148,7 @@ public class activity_6202 extends Activity {
                 return false;
             }
         });
-        test = "http://210.181.125.110/Connect1.php";
+        test = "http://172.30.2.157/Connect1.php";
         task = new URLConnector(test);
         task.start();
         try {
@@ -168,7 +185,7 @@ public class activity_6202 extends Activity {
         for(;i<42;i++) {
             pcA[i]=(Button)findViewById(pcId[i]);
             statusA[i]=Integer.parseInt(s[i+1]);
-            pcstatus(pcA[i],statusA[i]);
+            pcstatus(pcA[i],statusB[i]);
             pcA[i].setOnClickListener(new View.OnClickListener() {
                 final int j=i;
                 @Override
@@ -179,6 +196,7 @@ public class activity_6202 extends Activity {
                 }
             });
         }
+        System.out.println(Arrays.toString(statusA));
         /* 가장 큰 문제점 -------------------------------------------------------
 
 
@@ -421,6 +439,7 @@ public class activity_6202 extends Activity {
     }
          */
     }
+
     // 내가 현재 부여받은 네트워크의 아이피를 보려고 할 때
     public static String getLocalIpAddress() {
         try {

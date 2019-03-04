@@ -50,6 +50,11 @@
         android:background="@drawable/refresh"
         android:text="REFRESH" />
 
+    <TextView
+        android:id="@+id/node"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

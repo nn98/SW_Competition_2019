@@ -139,6 +139,13 @@
                     android:text="Quick"
                     android:textColor="#aaa" />
 
+                <!--
+                <TextView
+                    android:id="@+id/nodeS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                -->
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0.6dp"
@@ -174,6 +181,16 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_gravity="bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/node"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NODE"/>
+            </LinearLayout>
         </FrameLayout>
 
     </RelativeLayout>
