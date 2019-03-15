@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity_Timetable2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/day"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/T"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/MON" />
+
+            <TextView
+                android:id="@+id/MON"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="MON"
+                app:layout_constraintLeft_toRightOf="@id/T"
+                app:layout_constraintRight_toLeftOf="@+id/TUE" />
+
+            <TextView
+                android:id="@+id/TUE"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TUE"
+                app:layout_constraintLeft_toRightOf="@id/MON"
+                app:layout_constraintRight_toLeftOf="@id/WED" />
+
+            <TextView
+                android:id="@+id/WED"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="WED"
+                app:layout_constraintLeft_toRightOf="@id/TUE"
+                app:layout_constraintRight_toLeftOf="@id/THU" />
+
+            <TextView
+                android:id="@+id/THU"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="THU"
+                app:layout_constraintLeft_toRightOf="@id/WED"
+                app:layout_constraintRight_toLeftOf="@id/FRI" />
+
+            <TextView
+                android:id="@+id/FRI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="FRI"
+                app:layout_constraintLeft_toRightOf="@id/THU"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/monTable"
+            app:layout_constraintTop_toBottomOf="@+id/day">
+
+            <TextView
+                android:id="@+id/t9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="09:00"
+                app:layout_constraintBottom_toTopOf="@+id/t10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/t10"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="10:00"
+                app:layout_constraintBottom_toTopOf="@+id/t11"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t9" />
+
+            <TextView
+                android:id="@+id/t11"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="11:00"
+                app:layout_constraintBottom_toTopOf="@+id/t12"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t10" />
+
+            <TextView
+                android:id="@+id/t12"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="12:00"
+                app:layout_constraintBottom_toTopOf="@+id/t13"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t11" />
+
+            <TextView
+                android:id="@+id/t13"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="13:00"
+                app:layout_constraintBottom_toTopOf="@+id/t14"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t12" />
+
+            <TextView
+                android:id="@+id/t14"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="14:00"
+                app:layout_constraintBottom_toTopOf="@+id/t15"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t13" />
+
+            <TextView
+                android:id="@+id/t15"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="15:00"
+                app:layout_constraintBottom_toTopOf="@+id/t16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t14" />
+
+            <TextView
+                android:id="@+id/t16"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="16:00"
+                app:layout_constraintBottom_toTopOf="@+id/t17"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t15" />
+
+            <TextView
+                android:id="@+id/t17"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="17:00"
+                app:layout_constraintBottom_toTopOf="@+id/t18"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t16" />
+
+            <TextView
+                android:id="@+id/t18"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="18:00"
+                app:layout_constraintBottom_toTopOf="@+id/t19"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t17" />
+
+            <TextView
+                android:id="@+id/t19"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="19:00"
+                app:layout_constraintTop_toBottomOf="@+id/t18"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <!--
+            <TextView
+                android:id="@+id/t20"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="20:00"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/t19" />
+            -->
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/monTable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/time"
+            app:layout_constraintRight_toLeftOf="@+id/tueTable"
+            app:layout_constraintTop_toBottomOf="@+id/day">
+            <TextView
+                android:id="@+id/m1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/m2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="고급 웹 \n 프로그래밍 I \n\n 09:00~10:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/m2"
+                app:layout_constraintTop_toBottomOf="@+id/m1"
+                app:layout_constraintBottom_toTopOf="@+id/m3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="알고리즘 \n\n\n 10:30~11:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/m3"
+                app:layout_constraintTop_toBottomOf="@+id/m2"
+                app:layout_constraintBottom_toTopOf="@+id/m4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/m4"
+                app:layout_constraintTop_toBottomOf="@+id/m3"
+                app:layout_constraintBottom_toTopOf="@+id/m5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/m5"
+                app:layout_constraintTop_toBottomOf="@+id/m4"
+                app:layout_constraintBottom_toTopOf="@+id/m6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="데이터베이스 \n 개론 \n\n 15:00~16:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/m6"
+                app:layout_constraintTop_toBottomOf="@+id/m5"
+                app:layout_constraintBottom_toTopOf="@+id/m7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="시스템 분석 \n 및 설계 \n\n 16:30~17:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:layout_marginTop="25dp"
+                android:id="@+id/m7"
+                app:layout_constraintTop_toBottomOf="@+id/m6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="전공 탐색 \n 세미나 \n\n 18:25~19:10"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <!--
+            <TextView
+                android:id="@+id/m8"
+                app:layout_constraintTop_toBottomOf="@+id/m7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="sfdzsf"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            -->
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/tueTable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/monTable"
+            app:layout_constraintRight_toLeftOf="@+id/wedTable"
+            app:layout_constraintTop_toBottomOf="@+id/day">
+            <TextView
+                android:id="@+id/t1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/t2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="데이터베이스 \n\n\n 09:00~10:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/t2"
+                app:layout_constraintTop_toBottomOf="@+id/t1"
+                app:layout_constraintBottom_toTopOf="@+id/t3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="데이터베이스 \n\n\n 10:30~11:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/t3"
+                app:layout_constraintTop_toBottomOf="@+id/t2"
+                app:layout_constraintBottom_toTopOf="@+id/t4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/t4"
+                app:layout_constraintTop_toBottomOf="@+id/t3"
+                app:layout_constraintBottom_toTopOf="@+id/t5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/t5"
+                app:layout_constraintTop_toBottomOf="@+id/t4"
+                app:layout_constraintBottom_toTopOf="@+id/t6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="C 프로그래밍  \n\n\n 15:00~16:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/t6"
+                app:layout_constraintTop_toBottomOf="@+id/t5"
+                app:layout_constraintBottom_toTopOf="@+id/t7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="C 프로그래밍  \n\n\n 16:30~17:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:layout_marginTop="25dp"
+                android:id="@+id/t7"
+                app:layout_constraintTop_toBottomOf="@+id/t6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="전공 탐색 \n 세미나 \n\n 18:25~19:10"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_marginBottom="25dp"
+            android:id="@+id/wedTable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tueTable"
+            app:layout_constraintRight_toLeftOf="@+id/theTable"
+            app:layout_constraintTop_toBottomOf="@+id/day">
+            <TextView
+                android:id="@+id/w1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/w2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="알고리즘 \n\n\n 09:00~10:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/w2"
+                app:layout_constraintTop_toBottomOf="@+id/w1"
+                app:layout_constraintBottom_toTopOf="@+id/w3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="고급 웹 \n 프로그래밍 I\n\n 10:30~11:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/w3"
+                app:layout_constraintTop_toBottomOf="@+id/w2"
+                app:layout_constraintBottom_toTopOf="@+id/w4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/w4"
+                app:layout_constraintTop_toBottomOf="@+id/w3"
+                app:layout_constraintBottom_toTopOf="@+id/w5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/w5"
+                app:layout_constraintTop_toBottomOf="@+id/w4"
+                app:layout_constraintBottom_toTopOf="@+id/w6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="시스템 분석 \n 및 설계 \n\n 15:00~16:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/w6"
+                app:layout_constraintTop_toBottomOf="@+id/w5"
+                app:layout_constraintBottom_toTopOf="@+id/w7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="데이터베이스 \n 개론 \n\n 16:30~17:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/w7"
+                app:layout_constraintTop_toBottomOf="@+id/w6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/theTable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/wedTable"
+            app:layout_constraintRight_toLeftOf="@+id/friTable"
+            app:layout_constraintTop_toBottomOf="@+id/day">
+            <TextView
+                android:id="@+id/th1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/th2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="데이터베이스 \n\n\n 09:00~10:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/th2"
+                app:layout_constraintTop_toBottomOf="@+id/th1"
+                app:layout_constraintBottom_toTopOf="@+id/th3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="데이터베이스 \n\n\n 10:30~11:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/th3"
+                app:layout_constraintTop_toBottomOf="@+id/th2"
+                app:layout_constraintBottom_toTopOf="@+id/th4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="과정지도 Ⅴ \n\n\n 12:00~12:50"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/th4"
+                app:layout_constraintTop_toBottomOf="@+id/th3"
+                app:layout_constraintBottom_toTopOf="@+id/th5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/th5"
+                app:layout_constraintTop_toBottomOf="@+id/th4"
+                app:layout_constraintBottom_toTopOf="@+id/th6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="C 프로그래밍 \n\n\n 15:00~16:15"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/th6"
+                app:layout_constraintTop_toBottomOf="@+id/th5"
+                app:layout_constraintBottom_toTopOf="@+id/th7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="C 프로그래밍 \n\n\n 16:30~17:45"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+            <TextView
+                android:layout_marginTop="25dp"
+                android:id="@+id/th7"
+                app:layout_constraintTop_toBottomOf="@+id/th6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="졸업지도 \n\n\n 18:25~19:10"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_marginTop="50dp"
+            android:id="@+id/friTable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/theTable"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/day">
+            <TextView
+                android:id="@+id/f1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/f2"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#000"
+                android:background="#aaf"
+                android:text="데이터 활용 \n 및 분석 \n\n 10:00~11:50"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/f2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/f1"
+                app:layout_constraintBottom_toTopOf="@+id/f3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/f3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/f2"
+                app:layout_constraintBottom_toTopOf="@+id/f4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/f4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/f3"
+                app:layout_constraintBottom_toTopOf="@+id/f5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/f5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/f4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

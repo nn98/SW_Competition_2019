@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity_6202">
 
     <!--pcNumber 라벨들 이후 변경-->
 
@@ -32,6 +33,7 @@
         android:textSize="10sp" />
 
     <TextView
+        android:onClick="mOnPopupClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000"

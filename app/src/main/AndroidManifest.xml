@@ -28,5 +28,9 @@
             android:name=".NodeActivity" />
         <activity android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".Activity_Timetable" />
+        <activity
+            android:name=".Activity_Timetable2" />
     </application>
 </manifest>

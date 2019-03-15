@@ -163,12 +163,12 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         //nodeS=(TextView)findViewById(R.id.nodeS);
         nodeStatus=new int[42];
-        new JSONTask().execute("http://172.30.2.157:8888/post");
+        new JSONTask().execute("http://123.111.136.92:8888/post");
         // IP 확인 ___ 애뮬레이터를 실행하는 pc의 IP가 아닌 애뮬레이터 자체의 IP를 받아오는듯.
         System.out.println(getLocalIpAddress());
 
         // user information 업로드용
-        test = "http://172.30.2.157/Connect2.php";
+        test = "http://123.111.136.92/Connect2.php";
         task = new URLConnector(test);
         task.start();
         try {

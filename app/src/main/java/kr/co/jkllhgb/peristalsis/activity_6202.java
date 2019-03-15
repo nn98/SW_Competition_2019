@@ -41,6 +41,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Random;
+import java.util.TimeZone;
 
 public class activity_6202 extends Activity {
     /*  시연당시 어플리케이션 코드
@@ -148,7 +149,7 @@ public class activity_6202 extends Activity {
                 return false;
             }
         });
-        test = "http://172.30.2.157/Connect1.php";
+        test = "http://123.111.136.92/Connect1.php";
         task = new URLConnector(test);
         task.start();
         try {
@@ -440,6 +441,12 @@ public class activity_6202 extends Activity {
          */
     }
 
+    public void mOnPopupClick (View v){
+        //데이터 담아서 팝업(액티비티) 호출
+        Intent intent = new Intent(this, Activity_Timetable2.class);
+        startActivityForResult(intent, 1);
+    }
+
     // 내가 현재 부여받은 네트워크의 아이피를 보려고 할 때
     public static String getLocalIpAddress() {
         try {
@@ -462,7 +469,11 @@ public class activity_6202 extends Activity {
             @Override
             public void handleMessage(Message msg) {
                 // DateFormat 세팅 - 변수생성 후 호출 or 핸들러 내부에서 생성
-                now.setText(new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a").format(new Date()));
+                SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a");
+                s.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+                intent.putExtra("now",s.format(new Date()));
+                now.setText(s.format(new Date()));
+                //now.setText(new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a").format(new Date()));
             }
         };
         Runnable task = new Runnable() {
