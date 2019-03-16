@@ -311,7 +311,7 @@ Run
       - [Time Compare](http://sumi3360.blogspot.com/2014/01/android.html) 
       
   - 03/17 _ TimeTable warpping
-  - __현재수업 표시__ / 현재시간 위젯
+  - __현재수업 표시__ / 현재시간 위젯 // _PingTest 수정 _ OnTime 전송 , Database 수정 _ OnTime 컬럼 생성_
     - __현재수업 표시__
       - [SimpleDateFormat](https://bvc12.tistory.com/168)
       - [xml Sequence](https://hashcode.co.kr/questions/2657/xml%EC%95%88%EC%97%90%EC%84%9C-%EB%8B%A4%EC%88%98%EC%9D%98-layout%EC%9D%B4-%EA%B3%84%EC%B8%B5%EB%B3%84%EB%A1%9C-%EC%9E%88%EC%9D%84-%EB%95%8C-%EA%B0%81-layout%EC%97%90-%EC%84%A4%EC%A0%95%EB%90%9C-background%EC%9D%98-priority%EB%A5%BC-%EC%84%A4%EC%A0%95%ED%95%A0-%EC%88%98%EA%B0%80-%EC%9E%88%EB%82%98%EC%9A%94)
