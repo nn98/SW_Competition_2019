@@ -293,5 +293,6 @@ Run
 
   - 03/16 _ TimeTable making
   - __Constraint Layout 사용 연습__ / 학교홈페이지 시간표, 자체제작 시간표 팝업 / 현재요일 표시 / _현재수업 표시_ 
-    - <details><summary>Constraint Layout 사용 연습</summary>[Constraint Layout](https://academy.realm.io/kr/posts/constraintlayout-it-can-do-what-now/)<br />[Constraint Layout Chaining](https://medium.com/@futureofdev/android-constraintlayout-%EC%89%BD%EA%B2%8C-%EC%95%8C%EC%95%84%EA%B0%80%EC%9E%90-62d2ded79c17)<br />[Constraint Layout Defalut](https://kimch3617.tistory.com/entry/ConstraintLayout%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95)</details>
+    - <details><summary>Constraint Layout 사용 연습</summary>
+    - [Constraint Layout](https://academy.realm.io/kr/posts/constraintlayout-it-can-do-what-now/) <br />[Constraint Layout Chaining](https://medium.com/@futureofdev/android-constraintlayout-%EC%89%BD%EA%B2%8C-%EC%95%8C%EC%95%84%EA%B0%80%EC%9E%90-62d2ded79c17)<br />[Constraint Layout Defalut](https://kimch3617.tistory.com/entry/ConstraintLayout%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95)</details>
     -
