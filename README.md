@@ -308,7 +308,7 @@ Run
       - [Day name](https://oneday0012.tistory.com/61)
       - [Day name2](https://stackoverflow.com/questions/24367217/android-text-format-dateformat-eeee-gives-wrong-day-name)
     - _현재수업 표시(진행중)_
-      - [Time Compare](http://sumi3360.blogspot.com/2014/01/android.html) [](## Time)
+      - [Time Compare](http://sumi3360.blogspot.com/2014/01/android.html) [ ](## Time)
       
   - 03/17 _ TimeTable warpping
   - __현재수업 표시__ / 현재시간 위젯
