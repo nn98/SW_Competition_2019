@@ -30,46 +30,46 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/MON" />
+                app:layout_constraintRight_toLeftOf="@+id/d1" />
 
             <TextView
-                android:id="@+id/MON"
+                android:id="@+id/d1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="MON"
+                android:text="Mon"
                 app:layout_constraintLeft_toRightOf="@id/T"
-                app:layout_constraintRight_toLeftOf="@+id/TUE" />
+                app:layout_constraintRight_toLeftOf="@+id/d2" />
 
             <TextView
-                android:id="@+id/TUE"
+                android:id="@+id/d2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TUE"
-                app:layout_constraintLeft_toRightOf="@id/MON"
-                app:layout_constraintRight_toLeftOf="@id/WED" />
+                android:text="Tue"
+                app:layout_constraintLeft_toRightOf="@id/d1"
+                app:layout_constraintRight_toLeftOf="@id/d3" />
 
             <TextView
-                android:id="@+id/WED"
+                android:id="@+id/d3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="WED"
-                app:layout_constraintLeft_toRightOf="@id/TUE"
-                app:layout_constraintRight_toLeftOf="@id/THU" />
+                android:text="Wed"
+                app:layout_constraintLeft_toRightOf="@id/d2"
+                app:layout_constraintRight_toLeftOf="@id/d4" />
 
             <TextView
-                android:id="@+id/THU"
+                android:id="@+id/d4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="THU"
-                app:layout_constraintLeft_toRightOf="@id/WED"
-                app:layout_constraintRight_toLeftOf="@id/FRI" />
+                android:text="Thu"
+                app:layout_constraintLeft_toRightOf="@id/d3"
+                app:layout_constraintRight_toLeftOf="@id/d5" />
 
             <TextView
-                android:id="@+id/FRI"
+                android:id="@+id/d5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="FRI"
-                app:layout_constraintLeft_toRightOf="@id/THU"
+                android:text="Fri"
+                app:layout_constraintLeft_toRightOf="@id/d4"
                 app:layout_constraintRight_toRightOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
@@ -80,7 +80,7 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/monTable"
+            app:layout_constraintRight_toLeftOf="@id/d1Table"
             app:layout_constraintTop_toBottomOf="@+id/day">
 
             <TextView
@@ -207,12 +207,12 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/monTable"
+            android:id="@+id/d1Table"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/time"
-            app:layout_constraintRight_toLeftOf="@+id/tueTable"
+            app:layout_constraintRight_toLeftOf="@+id/d2Table"
             app:layout_constraintTop_toBottomOf="@+id/day">
             <TextView
                 android:id="@+id/m1"
@@ -315,12 +315,12 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/tueTable"
+            android:id="@+id/d2Table"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/monTable"
-            app:layout_constraintRight_toLeftOf="@+id/wedTable"
+            app:layout_constraintLeft_toRightOf="@id/d1Table"
+            app:layout_constraintRight_toLeftOf="@+id/d3Table"
             app:layout_constraintTop_toBottomOf="@+id/day">
             <TextView
                 android:id="@+id/t1"
@@ -413,12 +413,12 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_marginBottom="25dp"
-            android:id="@+id/wedTable"
+            android:id="@+id/d3Table"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/tueTable"
-            app:layout_constraintRight_toLeftOf="@+id/theTable"
+            app:layout_constraintLeft_toRightOf="@id/d2Table"
+            app:layout_constraintRight_toLeftOf="@+id/d4Table"
             app:layout_constraintTop_toBottomOf="@+id/day">
             <TextView
                 android:id="@+id/w1"
@@ -503,12 +503,12 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/theTable"
+            android:id="@+id/d4Table"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/wedTable"
-            app:layout_constraintRight_toLeftOf="@+id/friTable"
+            app:layout_constraintLeft_toRightOf="@id/d3Table"
+            app:layout_constraintRight_toLeftOf="@+id/d5Table"
             app:layout_constraintTop_toBottomOf="@+id/day">
             <TextView
                 android:id="@+id/th1"
@@ -607,11 +607,11 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_marginTop="50dp"
-            android:id="@+id/friTable"
+            android:id="@+id/d5Table"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/theTable"
+            app:layout_constraintLeft_toRightOf="@id/d4Table"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/day">
             <TextView
@@ -661,6 +661,16 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
         </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:background="#aa000000"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/now"
+            android:textSize="20dp"
+            android:text=" 00-00 EEE "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </android.support.constraint.ConstraintLayout>
 
