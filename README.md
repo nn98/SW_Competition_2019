@@ -297,9 +297,11 @@ Run
       - [Constraint Layout](https://academy.realm.io/kr/posts/constraintlayout-it-can-do-what-now/) 
       - [Constraint Layout Chaining](https://medium.com/@futureofdev/android-constraintlayout-%EC%89%BD%EA%B2%8C-%EC%95%8C%EC%95%84%EA%B0%80%EC%9E%90-62d2ded79c17)
       - [Constraint Layout Defalut](https://kimch3617.tistory.com/entry/ConstraintLayout%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95)
+      - <details><summary>시간표(Const)</summary><img src="./Const_6202.png" alt="drawing" width="216" height="384"/><img src="./Const_6202 I.png" alt="drawing" width="768" height="432"/></details>
     - Addition
       - [TextView \n](http://www.masterqna.com/android/82954/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-textview-%EC%A4%84%EB%B0%94%EA%BF%88-%EA%B0%9C%ED%96%89-n-%EC%A7%88%EB%AC%B8)
-      - [Switch to If-else](https://stackoverflow.com/questions/28259009/how-to-automatically-convert-if-else-if-statement-to-switch) , [SimpleDate](https://liveonthekeyboard.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%98%84%EC%9E%AC-%EC%8B%9C%EA%B0%84-%ED%98%84%EC%9E%AC-%EB%82%A0%EC%A7%9C-%EA%B5%AC%ED%95%98%EA%B8%B0-SimpleDateFormat)
+      - [Switch to If-else](https://stackoverflow.com/questions/28259009/how-to-automatically-convert-if-else-if-statement-to-switch)
+      - <details><summary>기존 시간표</summary><img src="./timetable_6202.png" alt="drawing" width="216" height="384"/><img src="./timetable_6202_1.png" alt="drawing" width="216" height="384"/></details>
     - 현재시간, 요일 표시
       - [SimpleDate](https://liveonthekeyboard.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%98%84%EC%9E%AC-%EC%8B%9C%EA%B0%84-%ED%98%84%EC%9E%AC-%EB%82%A0%EC%A7%9C-%EA%B5%AC%ED%95%98%EA%B8%B0-SimpleDateFormat)
       - [TimeZone](https://mainia.tistory.com/2246)
