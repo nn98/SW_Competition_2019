@@ -318,3 +318,5 @@ Run
       - [*Android Time Compare](http://sumi3360.blogspot.com/2014/01/android.html)
     - 현재시간 위젯
       - [Opacity](https://pimi.tistory.com/5)
+    - 오류
+      - [Emulator is already running](https://stackoverflow.com/questions/27014901/android-studio-emulator-is-already-running)
