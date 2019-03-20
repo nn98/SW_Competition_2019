@@ -1,4 +1,4 @@
-# PHP_Stud_App00
+# SW_Competition_2019
 
 
 * * *
