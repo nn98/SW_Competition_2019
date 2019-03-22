@@ -102,7 +102,7 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Enumeration;
 
-public class MainActivity extends Activity  implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private String TAG = "MainActivity";
 
@@ -122,7 +122,94 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     TextView code;
     Button node;
     //TextView nodeS;
-    int[] nodeStatus;
+    int[] nodeStatus=new int[42];
+    String[] userInfo;
+
+    public class JSONTask extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("user_id", "androidTest");
+                jsonObject.accumulate("name", "yun");
+
+                HttpURLConnection con = null;
+                BufferedReader reader = null;
+
+                try {
+                    //URL url = new URL("http://192.168.25.16:3000/users");
+                    URL url = new URL(urls[0]);
+                    //연결을 함
+                    con = (HttpURLConnection) url.openConnection();
+
+                    con.setRequestMethod("POST");//POST방식으로 보냄
+                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
+                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+                    con.setDoOutput(true);//Outstream으로 post 데이터를 넘겨주겠다는 의미
+                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
+                    con.connect();
+
+                    //서버로 보내기위해서 스트림 만듬
+                    OutputStream outStream = con.getOutputStream();
+                    //버퍼를 생성하고 넣음
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
+                    writer.write(jsonObject.toString());
+                    writer.flush();
+                    writer.close();//버퍼를 받아줌
+
+                    //서버로 부터 데이터를 받음
+                    InputStream stream = con.getInputStream();
+
+                    reader = new BufferedReader(new InputStreamReader(stream));
+
+                    StringBuffer buffer = new StringBuffer();
+
+                    String line = "";
+                    while ((line = reader.readLine()) != null) {
+                        buffer.append(line);
+                    }
+
+                    return buffer.toString();//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (con != null) {
+                        con.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();//버퍼를 닫아줌
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            String[] resultSet=result.replaceAll("\\[","").replaceAll("\\{","").replaceAll("\\}","").replaceAll("\\]","")
+                    .replaceAll("\"","").replaceAll(","," ").replaceAll("pc_status:","").split(" ");
+            //nodeS.setText(Arrays.toString(resultSet));
+            for(int i=0;i<nodeStatus.length;i++) {
+                nodeStatus[i]=Integer.parseInt(resultSet[i]);
+            }
+
+            //tvData.setText(Arrays.toString(resultSet));//서버로 부터 받은 값을 출력해주는 부
+        }
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -137,16 +224,16 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     @Override
     public void onBackPressed() {
 
-        if(isMenuShow){
+        if (isMenuShow) {
             closeMenu();
-        }else{
+        } else {
 
-            if(isExitFlag){
+            if (isExitFlag) {
                 finish();
             } else {
 
                 isExitFlag = true;
-                Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.",  Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -157,18 +244,46 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         }
     }
 
+    class JSONTaskUser extends JSONTask {
+        @Override
+        public void onPostExecute(String result) {
+            super.onPostExecute(result);
+            System.out.println("Execute");
+            String[] resultSet = result.replaceAll("\\[", "").replaceAll("\\{", "").replaceAll("\\}", "").replaceAll("\\]", "")
+                    .replaceAll("\"", "").replaceAll(",", " ").replaceAll("user_name:", "").replaceAll("user_dept:", "").replaceAll("user_id:", "").split(" ");
+            System.out.println(Arrays.toString(resultSet));
+            userInfo = resultSet;
+        }
+    }
+
+    class OnJSON extends Thread {
+        @Override
+        public void run() {
+            System.out.println("Run");
+            new JSONTaskUser().execute("http://192.168.0.68:3000/user");
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        System.out.println("Main");
+        Thread t=new OnJSON();
+        System.out.println("Main");
+        t.start();
         //nodeS=(TextView)findViewById(R.id.nodeS);
-        nodeStatus=new int[42];
-        new JSONTask().execute("http://123.111.136.92:8888/post");
+        //nodeStatus=new int[42];
+        Intent fIntent=getIntent();
+        //userInfo =fIntent.getStringArrayExtra("userInfo");
+        new JSONTask().execute("http://192.168.0.68:3000/post");
         // IP 확인 ___ 애뮬레이터를 실행하는 pc의 IP가 아닌 애뮬레이터 자체의 IP를 받아오는듯.
         System.out.println(getLocalIpAddress());
 
         // user information 업로드용
-        test = "http://123.111.136.92/Connect2.php";
+        /*
+        php part skip
+        test = "http://172.30.3.48/Connect2.php";
         task = new URLConnector(test);
         task.start();
         try {
@@ -181,17 +296,16 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         task.interrupt();
 
         String[] userInfo=result.trim().split(",");
+         */
         System.out.println(Arrays.toString(userInfo));
-        user=(TextView)findViewById(R.id.user);
+        user = (TextView) findViewById(R.id.user);
         user.setText(userInfo[0]);
-        depart=(TextView)findViewById(R.id.depart);
+        depart = (TextView) findViewById(R.id.depart);
         depart.setText(userInfo[1]);
-        code=(TextView)findViewById(R.id.code);
+        code = (TextView) findViewById(R.id.code);
         code.setText(userInfo[2]);
 
-        Intent intent = new Intent(this,LoadingActivity.class);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        startActivity(intent);
+
         init();
         addSideView();
         /*
@@ -202,8 +316,8 @@ public class MainActivity extends Activity  implements View.OnClickListener{
             e.printStackTrace();
         }//프로젝트에서 사용했던 getLH 시도- 실패. java.lang.RuntimeException: Unable to start activity ComponentInfo
          */
-        final Intent intent1=new Intent(this,NodeActivity.class);
-        node=(Button)findViewById(R.id.node);
+        final Intent intent1 = new Intent(this, NodeActivity.class);
+        node = (Button) findViewById(R.id.node);
         node.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -215,9 +329,9 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     // 내가 현재 부여받은 네트워크의 아이피를 보려고 할 때
     public static String getLocalIpAddress() {
         try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
                     if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
                         return inetAddress.getHostAddress();
@@ -230,7 +344,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         return null;
     }
 
-    private void init(){
+    private void init() {
 
         findViewById(R.id.btn_menu).setOnClickListener(this);
 
@@ -240,7 +354,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
 
     }
 
-    private void addSideView(){
+    private void addSideView() {
 
         SideBarView sidebar = new SideBarView(mContext);
         sideLayout.addView(sidebar);
@@ -273,16 +387,16 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
 
-            case R.id.btn_menu :
+            case R.id.btn_menu:
 
                 showMenu();
                 break;
         }
     }
 
-    public void closeMenu(){
+    public void closeMenu() {
 
         isMenuShow = false;
         Animation slide = AnimationUtils.loadAnimation(mContext, R.anim.sidebar_hidden);
@@ -297,7 +411,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         }, 450);
     }
 
-    public void showMenu(){
+    public void showMenu() {
 
         isMenuShow = true;
         Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_show);
@@ -309,7 +423,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     }
 
     private static String getLocalHostLANAddress() throws UnknownHostException {
-        InetAddress local = null;		//현재 컴퓨터 IP 받아오는 함수
+        InetAddress local = null;        //현재 컴퓨터 IP 받아오는 함수
         try {
             local = InetAddress.getLocalHost();
         } catch (UnknownHostException e) {
@@ -319,99 +433,12 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         return ip;
     }
 
-    public void mOnPopupClick (View v){
+    public void mOnPopupClick(View v) {
         //데이터 담아서 팝업(액티비티) 호출
         Intent intent = new Intent(this, activity_6202.class);
-        intent.putExtra("status",nodeStatus);
+        intent.putExtra("status", nodeStatus);
         startActivityForResult(intent, 1);
     }
-
-    public class JSONTask extends AsyncTask<String, String, String> {
-
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("user_id", "androidTest");
-                jsonObject.accumulate("name", "yun");
-
-                HttpURLConnection con = null;
-                BufferedReader reader = null;
-
-                try{
-                    //URL url = new URL("http://192.168.25.16:3000/users");
-                    URL url = new URL(urls[0]);
-                    //연결을 함
-                    con = (HttpURLConnection) url.openConnection();
-
-                    con.setRequestMethod("POST");//POST방식으로 보냄
-                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
-                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
-                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
-                    con.setDoOutput(true);//Outstream으로 post 데이터를 넘겨주겠다는 의미
-                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
-                    con.connect();
-
-                    //서버로 보내기위해서 스트림 만듬
-                    OutputStream outStream = con.getOutputStream();
-                    //버퍼를 생성하고 넣음
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
-                    writer.write(jsonObject.toString());
-                    writer.flush();
-                    writer.close();//버퍼를 받아줌
-
-                    //서버로 부터 데이터를 받음
-                    InputStream stream = con.getInputStream();
-
-                    reader = new BufferedReader(new InputStreamReader(stream));
-
-                    StringBuffer buffer = new StringBuffer();
-
-                    String line = "";
-                    while((line = reader.readLine()) != null){
-                        buffer.append(line);
-                    }
-
-                    return buffer.toString();//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
-
-                } catch (MalformedURLException e){
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    if(con != null){
-                        con.disconnect();
-                    }
-                    try {
-                        if(reader != null){
-                            reader.close();//버퍼를 닫아줌
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            String[] resultSet=result.replaceAll("\\[","").replaceAll("\\{","").replaceAll("\\}","").replaceAll("\\]","")
-                    .replaceAll("\"","").replaceAll(","," ").replaceAll("pc_status:","").split(" ");
-            //nodeS.setText(Arrays.toString(resultSet));
-            for(int i=0;i<nodeStatus.length;i++) {
-                nodeStatus[i]=Integer.parseInt(resultSet[i]);
-            }
-
-            //tvData.setText(Arrays.toString(resultSet));//서버로 부터 받은 값을 출력해주는 부
-        }
-    }
-
 }
 
 /*
