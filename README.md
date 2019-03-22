@@ -324,6 +324,6 @@ Run
 ```java 
 R.id testing = new R.id(); 
 Class c = testing.getClass();
-// testing.getClass(); -> Cannot resolv method getClass(); error occur
+// testing.getClass(); -> Cannot resolv method getClass(); error occur, but no problem for execute
   ```
 
