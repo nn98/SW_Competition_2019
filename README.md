@@ -326,4 +326,10 @@ R.id testing = new R.id();
 Class c = testing.getClass();
 // testing.getClass(); -> Cannot resolv method getClass(); error occur, but no problem for execute
   ```
+  - __기존 PHP 코드 -> Node.js 코드로 변환__ / 로그인용 레이아웃 틀 작성
+    - __PHP -> NOde.js__
+      - 기존 코드 참조
+      - 로그인 예시 코드 Node로 변경시 충돌 발생___ 실행과 동시에 AsyncTask(Node 서버와 통신) 실행 불가.
+    - 로그인용 레이아웃
+      - 로그인 예시 코드 유지를 위해 Main 대신 FirstActivity 먼저 실행, FirsetActivity에서 MainActivity로 데이터 전송.
 
