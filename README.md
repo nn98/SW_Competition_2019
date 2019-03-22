@@ -320,9 +320,7 @@ Run
       - [Opacity](https://pimi.tistory.com/5)
     - 오류
       - [Emulator is already running](https://stackoverflow.com/questions/27014901/android-studio-emulator-is-already-running)
-      - ```java 
-  R.id testing = new R.id();
-  Class c = testing.getClass();
+      - ```java <br /> R.id testing = new R.id(); <br />  Class c = testing.getClass();
   // testing.getClass(); -> Cannot resolv method getClass(); error occur
   ```
 
