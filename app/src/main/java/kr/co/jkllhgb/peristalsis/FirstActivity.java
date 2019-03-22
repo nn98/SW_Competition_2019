@@ -114,6 +114,8 @@ public class FirstActivity extends Activity {
         setContentView(R.layout.activity_first);
         System.out.println("First");
         main = (Button) findViewById(R.id.Main);
+        Intent lIntent = new Intent(this, LoadingActivity.class);
+        startActivity(lIntent);
         intent = new Intent(this, MainActivity.class);
 
         //실행 즉시 JSONTask 후 Main 실행 -> 실패
