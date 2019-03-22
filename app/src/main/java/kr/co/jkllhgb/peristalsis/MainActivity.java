@@ -123,6 +123,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button node;
     //TextView nodeS;
     int[] nodeStatus=new int[42];
+    Intent intent;
     String[] userInfo;
 
     public class JSONTask extends AsyncTask<String, String, String> {
@@ -244,6 +245,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    /* 로그인용 노드 시도->실패
+
     class JSONTaskUser extends JSONTask {
         @Override
         public void onPostExecute(String result) {
@@ -264,19 +267,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("Main");
-        Thread t=new OnJSON();
-        System.out.println("Main");
-        t.start();
         //nodeS=(TextView)findViewById(R.id.nodeS);
         //nodeStatus=new int[42];
-        Intent fIntent=getIntent();
-        //userInfo =fIntent.getStringArrayExtra("userInfo");
+        intent=getIntent();
+        userInfo =intent.getStringArrayExtra("user");
+        System.out.println("userInfo:"+Arrays.toString(userInfo));
         new JSONTask().execute("http://192.168.0.68:3000/post");
+
+
         // IP 확인 ___ 애뮬레이터를 실행하는 pc의 IP가 아닌 애뮬레이터 자체의 IP를 받아오는듯.
         System.out.println(getLocalIpAddress());
 

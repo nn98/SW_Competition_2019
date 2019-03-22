@@ -108,7 +108,7 @@ public class Activity_Timetable2 extends Activity {
         }
         // 현재 요일 확인 후 레이아웃 색 변경
         DateFormat d1 = new SimpleDateFormat("EEE");
-        DateFormat d2 = new SimpleDateFormat("EEE hh:mm");
+        DateFormat d2 = new SimpleDateFormat("EEE HH:mm");
         d1.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
         d2.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
         String date = d1.format(Calendar.getInstance().getTime());

@@ -91,6 +91,7 @@ public class activity_6202 extends Activity {
     int i = 0;
     int j = 0;
     TextView node;
+    int[] nodeStatus;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,6 +109,10 @@ public class activity_6202 extends Activity {
         R.id testing = new R.id();
         Class c = testing.getClass();
         String className = c.getName();
+
+        //php->node
+        nodeStatus=new int[42];
+        new JSONTask().execute("http://192.168.0.68:3000/post");
         /*
         Class noparams[] = {};
         //String parameter
@@ -156,6 +161,8 @@ public class activity_6202 extends Activity {
                 return false;
             }
         });
+
+        /*
         test = "http://123.111.136.92/Connect1.php";
         task = new URLConnector(test);
         task.start();
@@ -167,7 +174,11 @@ public class activity_6202 extends Activity {
         }
         String result = task.getResult();
         task.interrupt();
-        /*
+
+        System.out.println(result);
+        String[] s;
+        s = result.trim().split("");
+
         try {
             JSONObject root=new JSONObject(result);
 
@@ -182,9 +193,6 @@ public class activity_6202 extends Activity {
             e.printStackTrace();
         }
          */
-        System.out.println(result);
-        String[] s;
-        s = result.trim().split("");
 
         pcA = new Button[42];
         statusA = new int[42];
@@ -192,20 +200,19 @@ public class activity_6202 extends Activity {
 
         for (; i < 42; i++) {
             pcA[i] = (Button) findViewById(pcId[i]);
-            statusA[i] = Integer.parseInt(s[i + 1]);
+            // statusA[i] = Integer.parseInt(s[i + 1]);
             pcstatus(pcA[i], statusB[i]);
             pcA[i].setOnClickListener(new View.OnClickListener() {
                 final int j = i;
-
                 @Override
                 public void onClick(View v) {
                     intent.putExtra("pc_Number", pcA[j].getText());
-                    intent.putExtra("pc_Status", statusA[j] >= 8);
+                    intent.putExtra("pc_Status", nodeStatus[j] >= 8);
                     startActivityForResult(intent, 1);
                 }
             });
         }
-        System.out.println(Arrays.toString(statusA));
+        //System.out.println(Arrays.toString(statusA));
         /* 가장 큰 문제점 -------------------------------------------------------
 
 
@@ -232,22 +239,11 @@ public class activity_6202 extends Activity {
             @Override
             public void onClick(View v) {
                 i = 0;
-                URLConnector task = new URLConnector(test);
-                task.start();
-                try {
-                    task.join();
-                    System.out.println("waiting... for result");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                String result = task.getResult();
-                System.out.println(result);
-                task.interrupt();
-                String[] s;
-                s = result.trim().split("");
+                // php refresh->node
+                new JSONTask().execute("http://192.168.0.68:3000/post");
+                System.out.println(Arrays.toString(nodeStatus));
                 for (; i < 42; i++) {
-                    statusA[i] = Integer.parseInt(s[i + 1]);
-                    pcstatus(pcA[i], statusA[i]);
+                    pcstatus(pcA[i], nodeStatus[i]);
                 }
                 refresh.setText("REFRESH");
             }
@@ -491,7 +487,7 @@ public class activity_6202 extends Activity {
             @Override
             public void handleMessage(Message msg) {
                 // DateFormat 세팅 - 변수생성 후 호출 or 핸들러 내부에서 생성
-                SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a");
+                SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss a");
                 s.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
                 now.setText(s.format(new Date()));
                 //now.setText(new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a", java.util.Locale.getDefault()).format(new Date()));
@@ -820,4 +816,90 @@ public class activity_6202 extends Activity {
         }
     }
 
+    //php refresh->node
+    public class JSONTask extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("user_id", "androidTest");
+                jsonObject.accumulate("name", "yun");
+
+                HttpURLConnection con = null;
+                BufferedReader reader = null;
+
+                try{
+                    //URL url = new URL("http://192.168.25.16:3000/users");
+                    URL url = new URL(urls[0]);
+                    //연결을 함
+                    con = (HttpURLConnection) url.openConnection();
+
+                    con.setRequestMethod("POST");//POST방식으로 보냄
+                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
+                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+                    con.setDoOutput(true);//Outstream으로 post 데이터를 넘겨주겠다는 의미
+                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
+                    con.connect();
+
+                    //서버로 보내기위해서 스트림 만듬
+                    OutputStream outStream = con.getOutputStream();
+                    //버퍼를 생성하고 넣음
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
+                    writer.write(jsonObject.toString());
+                    writer.flush();
+                    writer.close();//버퍼를 받아줌
+
+                    //서버로 부터 데이터를 받음
+                    InputStream stream = con.getInputStream();
+
+                    reader = new BufferedReader(new InputStreamReader(stream));
+
+                    StringBuffer buffer = new StringBuffer();
+
+                    String line = "";
+                    while((line = reader.readLine()) != null){
+                        buffer.append(line);
+                    }
+
+                    return buffer.toString();//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
+
+                } catch (MalformedURLException e){
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if(con != null){
+                        con.disconnect();
+                    }
+                    try {
+                        if(reader != null){
+                            reader.close();//버퍼를 닫아줌
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            String[] resultSet=result.replaceAll("\\[","").replaceAll("\\{","").replaceAll("\\}","").replaceAll("\\]","")
+                    .replaceAll("\"","").replaceAll(","," ").replaceAll("pc_status:","").split(" ");
+            //nodeS.setText(Arrays.toString(resultSet));
+            for(int i=0;i<nodeStatus.length;i++) {
+                nodeStatus[i]=Integer.parseInt(resultSet[i]);
+            }
+
+            //tvData.setText(Arrays.toString(resultSet));//서버로 부터 받은 값을 출력해주는 부
+        }
+    }
 }
