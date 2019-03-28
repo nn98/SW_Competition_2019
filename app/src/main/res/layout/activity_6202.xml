@@ -183,25 +183,25 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="2dp"
                 android:background="#222"
-                android:layout_margin="2dp">
+                android:orientation="vertical">
 
                 <TextView
-                    android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="PC_2"
+                    android:textColor="#fff"
                     android:textSize="4.5pt" />
 
                 <Button
                     android:id="@+id/pc2"
                     android:layout_width="22pt"
                     android:layout_height="19pt"
-                    android:layout_marginBottom="1dp"
                     android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
                     android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:text="PC_2"
                     android:textAlignment="center"

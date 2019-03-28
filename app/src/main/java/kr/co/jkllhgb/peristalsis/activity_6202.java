@@ -1,6 +1,7 @@
 package kr.co.jkllhgb.peristalsis;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -92,12 +93,14 @@ public class activity_6202 extends Activity {
     int j = 0;
     TextView node;
     int[] nodeStatus;
+    ProgressDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_6202);
+        dialog = new ProgressDialog(activity_6202.this);
         Intent nIntent = getIntent();
         statusB = nIntent.getIntArrayExtra("status");
         System.out.println(Arrays.toString(statusB));
@@ -112,7 +115,7 @@ public class activity_6202 extends Activity {
 
         //php->node
         nodeStatus=new int[42];
-        new JSONTask().execute("http://192.168.0.68:3000/post");
+        new JSONTask().execute(MainActivity.IP+":3000/post");
         /*
         Class noparams[] = {};
         //String parameter
@@ -240,7 +243,7 @@ public class activity_6202 extends Activity {
             public void onClick(View v) {
                 i = 0;
                 // php refresh->node
-                new JSONTask().execute("http://192.168.0.68:3000/post");
+                new JSONTask().execute(MainActivity.IP+":3000/post");
                 System.out.println(Arrays.toString(nodeStatus));
                 for (; i < 42; i++) {
                     pcstatus(pcA[i], nodeStatus[i]);
@@ -890,6 +893,13 @@ public class activity_6202 extends Activity {
         }
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.setMessage("Refreshing...");
+            dialog.show();
+        }
+
+        @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             String[] resultSet=result.replaceAll("\\[","").replaceAll("\\{","").replaceAll("\\}","").replaceAll("\\]","")
@@ -898,7 +908,7 @@ public class activity_6202 extends Activity {
             for(int i=0;i<nodeStatus.length;i++) {
                 nodeStatus[i]=Integer.parseInt(resultSet[i]);
             }
-
+            dialog.dismiss();
             //tvData.setText(Arrays.toString(resultSet));//서버로 부터 받은 값을 출력해주는 부
         }
     }

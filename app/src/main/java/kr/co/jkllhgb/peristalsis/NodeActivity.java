@@ -38,7 +38,7 @@ public class NodeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                new JSONTask().execute("http://192.168.0.68:3000/post");//AsyncTask 시작시킴
+                new JSONTask().execute(MainActivity.IP+":3000/post");//AsyncTask 시작시킴
             }
         });
     }

@@ -123,7 +123,7 @@ public class FirstActivity extends Activity {
         //버튼 클릭으로 JSONTask 후 Main 실행 -> 실패
 
         //실행 즉시 JSONTask 후 버튼 클릭으로 실행
-        new JSONTask().execute("http://192.168.0.68:3000/user");
+        new JSONTask().execute(MainActivity.IP+":3000/user");
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

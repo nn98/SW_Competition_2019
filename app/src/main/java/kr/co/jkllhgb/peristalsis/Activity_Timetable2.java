@@ -161,10 +161,10 @@ public class Activity_Timetable2 extends Activity {
             long inTime = System.currentTimeMillis();
             System.out.println(inTime);
             //Date inNow = new Date(inTime);
-            Date inNow=inNow0.parse("13:48");
-            System.out.println(inNow);
+            Date inNow=new Date();
+            System.out.println("inNow : "+inNow);
             System.out.println(inNow0);
-            System.out.println(inNow0.format(inNow));
+            System.out.println("inNow form : "+inNow0.format(inNow));
             Date m1 = inNow0.parse("05:00");
             System.out.println(m1);
             System.out.println(m1.getTime());
