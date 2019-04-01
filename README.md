@@ -333,3 +333,8 @@ Class c = testing.getClass();
     - 로그인용 레이아웃
       - 로그인 예시 코드 유지를 위해 Main 대신 FirstActivity 먼저 실행, FirsetActivity에서 MainActivity로 데이터 전송.
 
+* * *
+  - 04/01 __최종 구현 시연__
+    - 로그인 구현완료
+    - 노드 서버 업데이트-시작 레이아웃에서 id와 pw 입력 후 서버로 전송, 서버에서 log
+    - 레이아웃 업데이트-레이아웃 텍스트, 백그라운드 
