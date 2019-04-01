@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import org.json.JSONObject;
 
@@ -23,14 +26,23 @@ import java.net.URL;
 import java.util.Arrays;
 
 public class FirstActivity extends Activity {
+
+    Button main;
+    Intent intent;
+    String[] userInfo;
+
+    ImageView logo;
+    static EditText id;
+    static EditText pw;
+
     public class JSONTask extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... urls) {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("user_id", "androidTest");
-                jsonObject.accumulate("name", "yun");
+                jsonObject.accumulate("user_id", id.getText());
+                jsonObject.accumulate("user_pw", pw.getText());
 
                 HttpURLConnection con = null;
                 BufferedReader reader = null;
@@ -105,14 +117,15 @@ public class FirstActivity extends Activity {
             //tvData.setText(Arrays.toString(resultSet));//서버로 부터 받은 값을 출력해주는 부
         }
     }
-    Button main;
-    Intent intent;
-    String[] userInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         System.out.println("First");
+        logo=(ImageView)findViewById(R.id.logo);
+        id=(EditText)findViewById(R.id.id);
+        pw=(EditText)findViewById(R.id.pw);
         main = (Button) findViewById(R.id.Main);
         Intent lIntent = new Intent(this, LoadingActivity.class);
         startActivity(lIntent);
@@ -127,6 +140,8 @@ public class FirstActivity extends Activity {
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                logo.setBackgroundResource(R.drawable.logo3);
+                main.setText("...");
                 intent.putExtra("user",userInfo);
                 startActivityForResult(intent,1);
             }

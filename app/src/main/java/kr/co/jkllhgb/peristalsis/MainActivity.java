@@ -104,7 +104,7 @@ import java.util.Enumeration;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    static String IP="http://172.30.2.134";
+    static String IP="http://172.30.3.55";
 
     private String TAG = "MainActivity";
 
@@ -127,6 +127,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     int[] nodeStatus=new int[42];
     Intent intent;
     String[] userInfo;
+    Button btn6202;
+    Button btn6405;
 
     public class JSONTask extends AsyncTask<String, String, String> {
 
@@ -135,8 +137,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("user_id", "androidTest");
-                jsonObject.accumulate("name", "yun");
+                jsonObject.accumulate("user_id", FirstActivity.id.getText());
+                jsonObject.accumulate("user_pw", FirstActivity.pw.getText());
 
                 HttpURLConnection con = null;
                 BufferedReader reader = null;

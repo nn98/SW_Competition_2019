@@ -158,11 +158,13 @@
                     android:background="@drawable/fadeline1" />
 
                 <Button
+                    android:background="@drawable/quick"
                     android:id="@+id/btn6202"
+                    android:textSize="5pt"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
                     android:onClick="mOnPopupClick"
                     android:text="Lec_6202" />
 
@@ -172,11 +174,13 @@
                     android:background="@drawable/fadeline1" />
 
                 <Button
+                    android:background="@drawable/quick"
                     android:id="@+id/btn6405"
+                    android:textSize="5pt"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
                     android:onClick="mOnPopupClick"
                     android:text="Lec_6405" />
 
@@ -187,6 +191,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <Button
+                    android:visibility="invisible"
                     android:id="@+id/node"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

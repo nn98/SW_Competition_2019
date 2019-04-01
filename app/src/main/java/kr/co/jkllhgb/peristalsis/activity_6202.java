@@ -94,6 +94,7 @@ public class activity_6202 extends Activity {
     TextView node;
     int[] nodeStatus;
     ProgressDialog dialog;
+    TextView lec;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -827,8 +828,8 @@ public class activity_6202 extends Activity {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("user_id", "androidTest");
-                jsonObject.accumulate("name", "yun");
+                //jsonObject.accumulate("user_id", "androidTest");
+                //jsonObject.accumulate("name", "yun");
 
                 HttpURLConnection con = null;
                 BufferedReader reader = null;
